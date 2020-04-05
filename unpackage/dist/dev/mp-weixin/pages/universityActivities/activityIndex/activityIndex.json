@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "大学活动",
+  "usingComponents": {
+    "uni-swiper-dot": "/components/uni-swiper-dot/uni-swiper-dot",
+    "search": "/wxcomponents/searchBar/searchBar",
+    "activecomponent": "/wxcomponents/activeList/activeList"
+  }
+}

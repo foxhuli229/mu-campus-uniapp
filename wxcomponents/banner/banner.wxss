@@ -1,0 +1,10 @@
+/* pages/common/template/banner/banner.wxss */
+@import '/wxcomponents/weui.wxss';
+.banner{
+  max-height: 300rpx;
+  overflow: hidden
+}
+.banner image{
+  width: 100%;
+  height: 300rpx;
+}

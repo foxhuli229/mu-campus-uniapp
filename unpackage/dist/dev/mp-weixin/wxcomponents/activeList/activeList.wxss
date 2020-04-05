@@ -1,0 +1,57 @@
+/* pages/common/template/activeList/activeList.wxss */
+@import '/wxcomponents/weui.wxss';
+@import '/wxcomponents/iconfont.wxss';
+.weui-panel__bd{
+  margin-bottom: 25rpx;
+}
+.weui-media-box {
+  padding: 12rpx;
+}
+
+.weui-media-box_appmsg {
+  background: #f8f8f8;
+  border-radius: 20rpx;
+}
+
+.weui-media-box__hd {
+  flex: 4;
+}
+
+.weui-media-box__bd {
+  flex: 8;
+  text-align:left;
+
+}
+
+.weui-media-box__hd_in-appmsg {
+  margin-right: 20rpx;
+  width: 100%;
+  height: 180rpx;
+  line-height: unset;
+}
+
+.weui-media-box__title {
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #585858;
+  line-height: 2.5;
+}
+
+.weui-media-box__desc {
+  color: #797979;
+  font-size: 0.6rem;
+  line-height: 1.5;
+}
+.weui-media-box__date{
+  font-size: 0.6rem;
+  color: #414141;
+  /* display: flex;
+  align-items: center; */
+}
+.weui-media-box__date icon{
+  font-size: 0.6rem;
+  color: #1297DC;
+  /* vertical-align: top */
+  margin-top: -20rpx;
+  margin-right: 10rpx
+}

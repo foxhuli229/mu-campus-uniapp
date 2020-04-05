@@ -1,0 +1,83 @@
+
+.weui-navbar.data-v-99c8ddf4 {
+  border-bottom:2rpx solid #4C6FF3;
+  color: #585858;
+  font-size: .9rem;
+}
+.weui-navbar__item.data-v-99c8ddf4 {
+  -webkit-box-flex: unset;
+  -webkit-flex: unset;
+          flex: unset;
+  padding: 12rpx 16rpx
+}
+.weui-navbar__item .weui-navbar__title.data-v-99c8ddf4{
+  padding: 10rpx 16rpx
+}
+.weui-navbar__item.weui-bar__item_on .weui-navbar__title.data-v-99c8ddf4{
+  color:#FFFFFF;
+  background-color: #4C6FF3;
+  font-size: .7rem;
+  border-radius:15rpx;
+}
+.weui-navbar__slider.data-v-99c8ddf4 {
+  display: none
+}
+/* 收藏和分享 */
+.collection-share.data-v-99c8ddf4{
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  top: 10rpx;
+  right: 0;
+}
+.collection-share icon.data-v-99c8ddf4{
+  font-size: 42rpx;
+  margin-right: 25rpx;
+  color: #515151
+  /* margin-top: 20rpx */
+}
+/* 活动详情 */
+.weui-tab__content.data-v-99c8ddf4{
+  color: #585858;
+  font-size: .8rem;
+  padding: 30rpx 40rpx
+}
+.active_name.data-v-99c8ddf4{
+  font-family: PangMenZhengDao;
+  font-size: 1.2rem;
+}
+.remark.data-v-99c8ddf4{
+  font-size: .6rem;
+  margin-top: 50rpx
+}
+.remark text.data-v-99c8ddf4{
+  color: #4C6FF3
+}
+.file.data-v-99c8ddf4{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  margin-top: 200rpx
+}
+.file image.data-v-99c8ddf4{
+  width: 70rpx;
+  height: 70rpx
+}
+.file text.data-v-99c8ddf4{
+  text-decoration: underline;
+  color: #4C6FF3
+}
+.file text.data-v-99c8ddf4:nth-child(2){
+  margin: 0 40rpx
+}
+

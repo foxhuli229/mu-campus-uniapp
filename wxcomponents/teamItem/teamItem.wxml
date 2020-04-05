@@ -1,0 +1,11 @@
+<!--pages/common/template/teamItem/teamItem.wxml-->
+<view class="weui-panel__bd">
+  <view class="{{ellipsis?'ellipsis':'unellipsis'}}">
+    <view>
+      <image src='https://mumu-small.oss-cn-shenzhen.aliyuncs.com/images/head1.png'></image>
+    </view>
+    <view></view>
+  </view>
+  <view bindtap='ellipsis'>{{ellipsis?'展开信息 ▽':'收起信息 △'}}</view>
+
+</view>

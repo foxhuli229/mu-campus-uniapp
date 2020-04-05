@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "募校园",
+  "usingComponents": {
+    "uni-swiper-dot": "/components/uni-swiper-dot/uni-swiper-dot"
+  }
+}

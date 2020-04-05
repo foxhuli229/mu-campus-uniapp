@@ -1,0 +1,80 @@
+
+.nav-list.data-v-4b3afe20 {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: space-around;
+	        justify-content: space-around;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	font-size: 24rpx;
+	color: #414141;
+	font-family: PangMenZhengDao;
+	padding: 30rpx 0 40rpx;
+}
+.nav-list .nav-item.data-v-4b3afe20 {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+}
+.nav-list .nav-item image.data-v-4b3afe20 {
+	width: 90rpx;
+	height: 81rpx;
+}
+.information.data-v-4b3afe20 {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	padding: 10rpx 20rpx;
+	font-family: PangMenZhengDao;
+	background-color: #f8f8f8;
+	border-bottom: 2rpx solid #4c6ff3;
+	color: #414141;
+}
+.information .info-left .hot.data-v-4b3afe20 {
+	font-size: 1.3rem;
+	margin-right: 7rpx;
+}
+.information .info-left .platform-introduction.data-v-4b3afe20 {
+	font-size: 0.9rem;
+}
+.information .info-right.data-v-4b3afe20 {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+}
+.information .info-right image.data-v-4b3afe20 {
+	width: 36rpx;
+	height: 36rpx;
+}
+.graphic-list.data-v-4b3afe20 {
+	padding: 34rpx 20rpx;
+}
+/* 轮播图 */
+swiper.data-v-4b3afe20 {
+	min-height: 300rpx;
+	max-height: 300rpx;
+	overflow: hidden;
+}
+.swiper-item image.data-v-4b3afe20 {
+	width: 100%;
+	height: 300rpx;
+}
+

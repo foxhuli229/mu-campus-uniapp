@@ -1,0 +1,49 @@
+
+.page__bd {
+	padding-bottom: 0;
+}
+.weui-navbar {
+	border-bottom: 18rpx solid rgba(248, 248, 248, 1);
+}
+.weui-tab__content {
+	padding: 55rpx 23rpx;
+	text-align: center;
+}
+.weui-navbar__item {
+	color: #414141;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	font-size: 1.2rem;
+	font-family: PangMenZhengDao;
+}
+.weui-navbar__item:first-child {
+	position: relative;
+}
+.weui-navbar__item:first-child::after {
+	position: absolute;
+	width: 4rpx;
+	height: 50%;
+	content: '';
+	top: 25%;
+	left: 100%;
+	background-color: rgba(233, 233, 233, 1);
+}
+.weui-navbar__item icon {
+	font-size: 34rpx;
+	margin-top: -10rpx;
+	margin-right: 18rpx;
+}
+.weui-navbar__item.weui-bar__item_on {
+	color: #414141;
+}
+.weui-navbar__slider {
+	background: #4c6ff3;
+}
+

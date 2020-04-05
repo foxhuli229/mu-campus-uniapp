@@ -1,0 +1,92 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/home/login/login",
+			"style": {
+				"navigationBarTitleText": "募校园",
+				// "navigationBarBackgroundColor":"#4C6FF3",
+				// "navigationBarTextStyle": "white",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/home/index/index",
+			"style": {
+				"navigationBarTitleText": "募校园",
+				"usingComponents": {
+					"search": "/wxcomponents/searchBar/searchBar",
+					"graphiclist": "/wxcomponents/graphicList/graphicList"
+				}
+				//, "navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/search/search",
+			"style": {
+				"navigationBarTitleText": "募校园"
+			}
+		},
+		{
+			"path": "pages/teamRecruitment/index/index",
+			"style": {
+				"navigationBarTitleText": "募校园"
+			}
+		},
+		{
+			"path": "pages/home/information/information",
+			"style": {
+				"navigationBarTitleText": "资讯",
+				"usingComponents": {
+					"activecomponent": "/wxcomponents/activeList/activeList"
+				}
+			}
+		},
+		{
+			"path": "pages/universityActivities/activityIndex/activityIndex",
+			"style": {
+				"navigationBarTitleText": "大学活动",
+				"usingComponents": {
+					"search":"/wxcomponents/searchBar/searchBar",
+					"activecomponent": "/wxcomponents/activeList/activeList"
+				}
+			}
+		},
+		{
+			"path": "pages/universityActivities/activityDetail/activityDetail",
+			"style": {
+				"navigationBarTitleText": "募校园"
+			}
+		},
+		{
+			"path": "pages/userCentre/index/index",
+			"style": {
+				"navigationBarTitleText": "募校园"
+			}
+		},
+		
+		{
+			"path": "pages/home/web/web",
+			"style": {
+				"navigationBarTitleText": "募校园"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "募校园",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+		// "enablePullDownRefresh": true,
+		// "backgroundTextStyle":"light"
+	},
+	"condition" : { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [
+			{
+				"name": "", //模式名称
+				"path": "", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			}
+		]
+	}
+}

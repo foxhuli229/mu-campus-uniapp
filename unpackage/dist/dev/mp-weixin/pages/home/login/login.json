@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "募校园",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar"
+  }
+}

@@ -1,0 +1,16 @@
+<!--pages/common/template/searchBar/searchBar.wxml-->
+<view class='search-bar'>
+  <navigator class='search-left' url='/pages/search/search'>
+    <!-- <input type="text" class="search-bar__input" placeholder="搜索" placeholder-class="" value="{{inputVal}}" /> -->
+    <image class='search-icon' src='{{searchIcon}}'></image>
+  </navigator>
+  <view class='search-right'>
+    <view class='side-pull'>
+      <icon class='iconfont icon-caidan1'></icon>
+    </view>
+    <view class='release' bindtap='openRelease'>
+      <icon class='iconfont icon-icon'></icon>
+    </view>
+  </view>
+
+</view>

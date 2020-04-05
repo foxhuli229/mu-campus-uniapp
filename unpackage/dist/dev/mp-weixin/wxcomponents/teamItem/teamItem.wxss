@@ -1,0 +1,20 @@
+/* pages/common/template/teamItem/teamItem.wxss */
+@import '/wxcomponents/weui.wxss';
+@import '/wxcomponents/iconfont.wxss';
+
+/* 修改列数 3行 */
+.ellipsis {
+    display: -webkit-box;
+    -webkit-box-orient:vertical;
+    text-overflow: ellipsis;
+    overflow:hidden;
+    -webkit-line-clamp: 3;
+}
+/* 展示全部 */
+.unellipsis {
+  display: -webkit-box;
+  -webkit-box-orient:vertical;
+  text-overflow: ellipsis;
+  overflow:hidden;
+  -webkit-line-clamp: 0;
+}

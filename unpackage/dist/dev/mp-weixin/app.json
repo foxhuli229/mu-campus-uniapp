@@ -1,0 +1,23 @@
+{
+  "pages": [
+    "pages/home/login/login",
+    "pages/home/index/index",
+    "pages/search/search",
+    "pages/teamRecruitment/index/index",
+    "pages/home/information/information",
+    "pages/universityActivities/activityIndex/activityIndex",
+    "pages/universityActivities/activityDetail/activityDetail",
+    "pages/userCentre/index/index",
+    "pages/home/web/web"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "募校园",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "permission": {},
+  "usingComponents": {},
+  "sitemapLocation": "sitemap88.json"
+}

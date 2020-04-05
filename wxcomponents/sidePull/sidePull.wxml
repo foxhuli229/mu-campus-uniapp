@@ -1,0 +1,18 @@
+<!--pages/common/template/sidePull/sidePull.wxml-->
+<!-- 侧边栏内容 -->
+<view class="page-slidebar">
+  <view class="page-content">
+    <view class="wc">
+      <text>首页</text>
+    </view>
+    <view class="wc">
+      <text>导航一</text>
+    </view>
+    <view class="wc">
+      <text>导航二</text>
+    </view>
+    <view class="wc">
+      <text>导航三</text>
+    </view>
+  </view>
+</view>！
