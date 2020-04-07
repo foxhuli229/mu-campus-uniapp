@@ -2,12 +2,12 @@
 <uni-shadow-root class="graphicList-graphicList"><view class="weui-panel__bd">
   <navigator :url="activeUrl" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
     <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-      <image class="weui-media-box__thumb" :src="imgUrl"></image>
+      <image class="weui-media-box__thumb" :src="imgUrl" style="border-radius: 20rpx;"></image>
     </view>
     <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
       <view class="weui-media-box__title">{{title}}</view>
       <view class="weui-media-box__desc">{{content}}</view>
-      <view class="weui-media-box__date"><icon class="iconfont icon-shizhong"></icon>{{date}}</view>
+      <view class="weui-media-box__date"><icon class="iconfont icon-shizhong" v-if="label"></icon>{{date}}</view>
     </view>
   </navigator>
 </view></uni-shadow-root>
@@ -32,7 +32,11 @@ Component({
     title: { type: String, value: '' },
     content: { type: String, value: '' },
     imgUrl: { type: String, value: '' },
-    date: { type: String, value: '' }
+    date: { type: String, value: '' },
+	label: {
+		type: [Boolean, String],
+		value: false
+	}
   },
 
   /**

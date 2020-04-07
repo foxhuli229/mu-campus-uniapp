@@ -19,8 +19,8 @@
 
 .weui-media-box__bd {
   flex: 8;
+  margin-right: 40rpx;
   text-align:left;
-
 }
 
 .weui-media-box__hd_in-appmsg {
@@ -51,7 +51,27 @@
 .weui-media-box__date icon{
   font-size: 0.6rem;
   color: #1297DC;
-  /* vertical-align: top */
-  margin-top: -20rpx;
   margin-right: 10rpx
+}
+.weui-media-box__thumb {
+	border-radius: 20rpx;
+}
+.active-lable {
+	position: absolute;
+	right: 0;
+	bottom: 22rpx;
+	padding: 10rpx 5rpx;
+	
+	background:rgba(76,111,243,1);
+	border-radius:20rpx 0rpx 0rpx 20rpx;
+	overflow: hidden;
+	text-align: center;
+	font-size:20rpx;
+	font-family:Microsoft YaHei;
+	font-weight:400;
+	
+	writing-mode: vertical-lr;/*从左向右 从右向左是 writing-mode: vertical-rl;*/  
+	writing-mode: tb-lr;/*IE浏览器的从左向右 从右向左是 writing-mode: tb-rl；*/
+	
+	color:rgba(255,255,255,1);
 }

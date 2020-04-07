@@ -1,7 +1,39 @@
 <script>
+import {mapMutations} from 'vuex'
+const app = getApp();
 export default {
+	methods: {
+		...mapMutations(['login']) //对全局方法的login进行监控
+	},
 	onLaunch: function() {
-		console.log('App Launch');
+		// console.log('App Launch');
+		let userinfo = uni.getStorageSync("userinfolist") || "";
+		let token = uni.getStorageSync("token") || "";
+		console.log(userinfo, token)
+		let arry =[];
+		if(typeof userinfo == "object") {
+			arry = Object.keys(userinfo);
+		}
+		if((userinfo != "" || arry.length != 0 ) && token != ""){
+			// //更新的登录状态
+			// uni.getUserInfo({
+			// 	provider: 'weixin',
+			// 	success(ress) {
+			// 		console.log(ress)
+			// 	}
+			// })
+			uni.getStorageInfoSync({
+				key: "userinfolist",
+				success: function(res) {
+					console.log(res)
+					this.login(res.data);
+				}
+			})
+		}else {
+			// uni.redirectTo({
+			// 	url: '/pages/home/login/login'
+			// })
+		}
 	},
 	onShow: function() {
 		console.log('App Show');
@@ -12,9 +44,12 @@ export default {
 	//全局变量
 	globalData: {
 		//主机域名 https://www.gomumu.top
-		host: 'http://192.168.0.5:8025',
+		host: 'http://www.gomumu.top',
 		//OSS 存储系统域名
-		oosHost: 'https://cmrs-oos.oss-cn-beijing.aliyuncs.com/' //图片host
+		oosHost: 'https://cmrs-oos.oss-cn-beijing.aliyuncs.com/' ,//图片host
+		// "nickname": '',
+		// "acivter": '',
+		// "college": ''
 	}
 };
 </script>

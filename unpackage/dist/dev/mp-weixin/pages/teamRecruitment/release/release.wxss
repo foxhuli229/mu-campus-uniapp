@@ -1,0 +1,17 @@
+
+.page.data-v-757d04f4{
+	background: #FAF7FA;
+	color: #414141;
+	font-size: 28rpx
+}
+.weui-cell.data-v-757d04f4{
+	background-color: #fff;
+	margin-top: 20rpx;
+}
+.weui-cell.data-v-757d04f4::before{
+	border-top: unset
+}
+.weui-select.data-v-757d04f4{
+	border-right: unset
+}
+

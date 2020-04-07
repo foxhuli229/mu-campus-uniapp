@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "个人信息",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "uni-icons": "/components/uni-icons/uni-icons"
+  }
+}

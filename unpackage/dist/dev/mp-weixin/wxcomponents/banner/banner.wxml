@@ -1,4 +1,0 @@
-<!--pages/common/template/banner/banner.wxml-->
-<view class='banner'>
-  <image src='{{bannerUrl}}'></image>
-</view>

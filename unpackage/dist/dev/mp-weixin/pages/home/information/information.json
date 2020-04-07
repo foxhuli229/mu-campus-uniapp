@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "资讯",
+  "enablePullDownRefresh": true,
   "usingComponents": {
-    "activecomponent": "/wxcomponents/activeList/activeList"
+    "graphiclist": "/wxcomponents/graphicList/graphicList"
   }
 }

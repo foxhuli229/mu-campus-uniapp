@@ -1,4 +1,7 @@
 
+.page.data-v-4b3afe20 {
+		background-color: #FFFFFF;
+}
 .nav-list.data-v-4b3afe20 {
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -74,7 +77,8 @@ swiper.data-v-4b3afe20 {
 	overflow: hidden;
 }
 .swiper-item image.data-v-4b3afe20 {
-	width: 100%;
+	width: 100% !important;
 	height: 300rpx;
+	cursor: pointer;
 }
 

@@ -22,7 +22,7 @@ global['__wxVueOptions'] = {components:{}}
 
 global['__wxRoute'] = 'searchBar/searchBar'
 // pages/common/template/searchBar/searchBar.js
-var app = getApp();
+const app = getApp();
 
 Component({
   options: {

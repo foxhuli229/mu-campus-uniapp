@@ -1,5 +1,6 @@
+import store from '../store/index.js'
+
 const app = getApp();
-console.log(app.globalData.host)
 const requestURL = ({
 	url,
 	method = "POST",
@@ -11,10 +12,12 @@ const requestURL = ({
 			title: '加载中',
 		})
 		//获取token
-		var token = uni.setStorage("token")
-		console.log(token);
+		let token = store.state.token;
+		if(token == "") {
+			token = uni.getStorageSync("token")
+		}
 		uni.request({
-			url: app.globalData.host + url,
+			url: app.globalData.host + "" + url,
 			header: {
 				"token": token,
 				// 'content-type': "application/x-www-form-urlencoded"
@@ -23,6 +26,7 @@ const requestURL = ({
 			method: method,
 			data: params,
 			success: res => {
+				console.log(res.data);
 				resolve(res.data);
 			},
 			fail: function(res) {
@@ -32,6 +36,7 @@ const requestURL = ({
 					duration: 2000,
 					mask: true
 				})
+				console.log(res)
 				reject(res)
 			},
 			complete: function() {
@@ -46,11 +51,22 @@ const requestURL = ({
  * 检查token是否存在
  */
 const checkToken = function checkToken() {
-	let token = uni.getStorageSync({key: 'token'});
-	console.log("token值为：", token);
+	let token = store.state.token;
+	if(token == "") {
+		token = uni.getStorageSync("token")
+	}
 	if(typeof token === "undefined" || typeof token === "") {
-		uni.redirectTo({
-			url: '/pages/home/login/login.vue'
+		uni.showModal({
+			title: "温馨提示",
+			content: "请先授权登录！",
+			showCancel: false,
+			success: function(res) {
+				if(res.confirm) {
+					uni.redirectTo({
+						url: '/pages/home/login/login'
+					})
+				}
+			}
 		})
 	}else {
 		//检查token是否存在
@@ -59,10 +75,11 @@ const checkToken = function checkToken() {
 				uni.request({
 					url: app.globalData.host + "/user/refresh",
 					method: 'POST',
-					data: {"token": uni.getStorageSync("token")},
+					data: {"token": store.state.token},
 					success: (res) => {
 						console.log("刷新了token值", res);
-						uni.setStorage({key: 'token', data: res.token})
+						store.state.commit("token", res.token);
+						// uni.setStorage({key: 'token', data: res.token})
 					}
 				})
 			}
@@ -76,6 +93,9 @@ const checkToken = function checkToken() {
  */
 const checkLogin = function checkLogin() {
 	uni.checkSession({
+		success() {
+			
+		},
 		fail: () => {
 			login(); //登录
 		}
@@ -87,60 +107,72 @@ const checkLogin = function checkLogin() {
  * 登录
  */
 const login = function login() {
-	uni.login({
-		provider: 'weixin',
-		success(res) {
-			if (res.code) {
-				let code = res.code;
-				uni.getUserInfo({
+	uni.getProvider({
+		service: 'oauth',
+		success(provRes) {
+			if(~res.provider.indexOf('weixin')) {
+				uni.login({
 					provider: 'weixin',
-					success: (userRes) => {
-						console.log(userRes);
-						let iv = userRes.iv;
-						let encryptedData = userRes.encryptedData;
-						let param = {
-							code,
-							iv,
-							encryptedData
-						}
-						console.log(param)
-						uni.request({
-							url: app.globalData.host +  '/user/wxlogin',
-							method: 'POST',
-							params: JSON.stringify({ code, encryptedData, iv }),
-							success: (res) => {
-								res = res.data;
-								if (res.code === 200) {
-									uni.setStorageSync({key: "token", data: res.data.token});
-									uni.setStorageSync({key: "userinfolist", data: res.data.user});
-									console.log("common.js 登录成功")
-								}else {
-									uni.showModal({
-										title: '提示',
-										content: '登录失败,请重试！',
+					success(res) {
+						if (res.code) {
+							let code = res.code;
+							uni.getUserInfo({
+								provider: 'weixin',
+								success: (userRes) => {
+									console.log(userRes);
+									let iv = userRes.iv;
+									let encryptedData = userRes.encryptedData;
+									let param = {
+										code,
+										iv,
+										encryptedData
+									}
+									console.log(param)
+									uni.request({
+										url: app.globalData.host +  '/user/wxlogin',
+										method: 'POST',
+										params: JSON.stringify({ code, encryptedData, iv }),
+										success: (res) => {
+											res = res.data;
+											if (res.code === 200) {
+												store.state.commit("token", res.data.token);
+												store.state.commit("userinfolist", res.data.user);
+												console.log("common.js 登录成功")
+											}else {
+												uni.showModal({
+													title: '提示',
+													content: '登录失败,请重试！',
+												})
+											}
+										},
+										fail: (res) => {
+											uni.showModal({
+												title: '提示',
+												content: '登录失败,请重试！',
+											})
+										}
 									})
+								},
+								fail(userRes) {
+									console.log("获取用户信息报错了", userRes);
 								}
-							},
-							fail: (res) => {
-								uni.showModal({
-									title: '提示',
-									content: '登录失败,请重试！',
-								})
-							}
-						})
+							})
+						} 
 					},
-					fail(userRes) {
-						console.log("获取用户信息报错了", userRes);
+					fail: (res) => {
+						console.log("登录失败", res)
+						uni.showModal({
+							title: '提示',
+							content: '登录失败,请重试！',
+						})
 					}
 				})
-			} 
-		},
-		fail: (res) => {
-			console.log("登录失败", res)
-			uni.showModal({
-				title: '提示',
-				content: '登录失败,请重试！',
-			})
+			}else {
+				uni.showModal({
+					title:"温馨提示",
+					content: "目前暂不支持，其他设备登录！"
+				})
+			}
 		}
 	})
 }

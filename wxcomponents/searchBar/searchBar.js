@@ -1,5 +1,5 @@
 // pages/common/template/searchBar/searchBar.js
-var app = getApp();
+const app = getApp();
 
 Component({
   options: {

@@ -1,26 +1,38 @@
 <template>
 	<view class="page">
-		<!-- 自定义导航 -->
-		<!-- <view class="example-body">
-			<uni-nav-bar leftText="募校园"  @clickLeft="back"/>
-		</view> -->
-
 		<!-- 搜索框 -->
-		<view class="searchBar"><search></search></view>
+		<view class="searchBar">
+			<uni-search-bar></uni-search-bar>
+		</view>
 		<!-- 轮播 -->
-		<uni-swiper-dot :info="bannerUrl" :current="current" mode="default" :dots-styles="dotsStyles" field="content">
-			<swiper class="swiper-box" autoplay="true" interval="5000" duration="1000" circular="true" @change="change">
-				<swiper-item v-for="(item, index) in bannerUrl" :key="index">
-					<view :class="[item.colorClass, 'swiper-item']"><image class="image" :src="item.url" mode="aspectFill" /></view>
-				</swiper-item>
-			</swiper>
-		</uni-swiper-dot>
-
+		<!-- <web-view :url="webUrl"></web-view> -->
+		<uni-swiper-dot :info="bannerUrl" :current="current" mode="default" field="content">
+				<swiper class="swiper-box" 
+						autoplay="true" 
+						interval="5000"
+						duration="1000" 
+						circular="true" 
+						@change="change">
+					<swiper-item v-for="(item, index) in bannerUrl" :key="index">
+						<view :class="swiper-item">
+							<image class="image" 
+								:src="item.cover" 
+								:title="item.title" 
+								:url="item.url" 
+								mode="aspectFill"
+								style="width: 100%;"
+								@click="gonewWeb($event, item.url)"
+								/>
+						</view>
+					</swiper-item>
+				</swiper>
+			</uni-swiper-dot>
+		
 		<!-- 导航 -->
 		<view class="nav-list">
 			<block v-for="(item, index) in navArray" :key="index">
 				<navigator class="nav-item" :url="item.pageUrl" hover-class="none">
-					<image :src="item.imgUrl"></image>
+					<image :src="item.imgUrl" ></image>
 					<text>{{ item.text }}</text>
 				</navigator>
 			</block>
@@ -39,14 +51,12 @@
 		<view class="graphic-list">
 			<block v-for="item of graphics" :key="item.id">
 				<graphiclist
-					:activeUrl="'/pages/home/web/web?url=' + item.url"
+					:activeUrl="item.url"
 					:title="item.title"
 					:content="item.description"
 					:imgUrl="item.cover"
-					:date="item.date"
 				></graphiclist>
 			</block>
-			<view class="uni-loadmore" v-if="showLoadMore">{{ loadMoreText }}</view>
 		</view>
 	</view>
 </template>
@@ -57,36 +67,24 @@ var app = getApp();
 const common = require("../../../publicjs/common.js");
 import uniSwiperDot from '@/components/uni-swiper-dot/uni-swiper-dot.vue'; //轮播
 import uniNavBar from '@/components/uni-nav-bar/uni-nav-bar.vue'
+import uniSearchBar from "@/components/uni-search-bar/uni-search-bar.vue"
 export default {
 	name: "HomeIndex",
 	components:{
 		uniSwiperDot,
-		uniNavBar
+		uniNavBar,
+		uniSearchBar
 	},
 	data() {
 		return {
-			loadMoreText: "加载中...",
+			oosHost: '',
 			max: 0,
+			webUrl: 'https://mp.weixin.qq.com/s/xh-fiDHvn30XD7bUX5ttVg',
+			webviewStyles: {
+			},
 			//轮播图
-			bannerUrl: [
-					{
-						colorClass: 'uni-bg-red',
-						url: app.globalData.oosHost + 'sys/index_banner.jpg',
-						content: '内容 A'
-					},
-					{
-						colorClass: 'uni-bg-green',
-						url: 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/muwu.jpg',
-						content: '内容 B'
-					},
-					{
-						colorClass: 'uni-bg-blue',
-						url: 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/cbd.jpg',
-						content: '内容 C'
-					}
-			],
+			bannerUrl: [],
 			current: 0,
-			dotsStyles: {},
 			//导航
 			navArray: [
 				{
@@ -95,7 +93,7 @@ export default {
 					text: '大学活动'
 				},
 				{
-					pageUrl: '',
+					pageUrl: '/pages/teamRecruitment/index/index',
 					imgUrl: 'http://mumu-small.oss-cn-shenzhen.aliyuncs.com/img/index/icon_team.png',
 					text: '组队招募'
 				},
@@ -106,84 +104,54 @@ export default {
 				}
 			],
 			//热门图文
-			graphics: [
-				{
-					id: 1,
-					url: '1111',
-					title: '新一年的第一场比赛来啦',
-					description: '2月17日，位于日内瓦的世界贸 。易组织总部并不平静。 当天，WTO...',
-					cover:  app.globalData.oosHost + 'sys/index_banner.jpg',
-					"date": new Date().toLocaleString()
-				}
-			]
+			graphics: []
 		};
 	},
-	onLoad() {
+	onShow() {
+		this.oosHost = app.globalData.oosHost;
+		uni.startPullDownRefresh();
 		common.fonts(); //获取网络字体
-		common.checkLogin(); //验证用户是否登录
-		common.checkToken(); //检查token是否有效
-		this.swiperData(); //获取首页轮播
+		// common.checkLogin(); //验证是否登录
+		this.indexSwiper(); //获取首页置顶图文
 		this.getHotGraphic(); /**获取首页精选图文 */
+		uni.hideHomeButton(); //隐藏首页按钮
 	},
-	onUnload: function() {
-		this.max = 0;
-		this.graphics = [];
-		this.loadMoreText = "加载更多";
-		this.showLoadMore = false;
-	},
-	onReachBottom: function() {
-		console.log("onReachBottom");
-		if (this.max > 40) {
-			this.loadMoreText = "没有更多数据了!"
-			return;
-		}
-		this.showLoadMore = true;
-		setTimeout(() => {
-			this.setListData();
-		}, 300);
-	},
-	onPullDownRefresh:function(){
-		console.log('onPullDownRefresh');
-		this.initData();
-	},
-	computed: {
-		showLoadMore() {
-			console.log("graphics 数据长度为: " + this.graphics.length);
-			return this.graphics.length;
-		}
+	//停止刷新
+	onPullDownRefresh() {
+		setTimeout(function () {
+			uni.stopPullDownRefresh();
+		}, 1000);
 	},
 	methods: {
-		initData(){
-			setTimeout(() => {
-				this.max = 0;
-				this.data = [];
-				let data = [];
-				this.max += 10;
-				for (var i = this.max - 9; i < this.max + 1; i++) {
-					data.push(i)
+		//获取首页置顶图文
+		indexSwiper() {
+			common.requestURL({
+				url: '/graphic/indexTop',
+				method: 'GET'
+			}).then(res => {
+				if(res.code == 200) {
+					this.bannerUrl = res.data;
 				}
-				this.data = this.data.concat(data);
-				uni.stopPullDownRefresh();
-			}, 300);
+			})
 		},
-		setListData() {
-			let data = [];
-			this.max += 10;
-			for (var i = this.max - 9; i < this.max + 1; i++) {
-				data.push(i)
+		//轮播切换
+		change(e) {
+			this.current = e.detail.current;
+		},
+		gonewWeb(e, url){
+			console.log("进来了")
+			url = "https://mp.weixin.qq.com/s/Zs-F9fMFvqvBBGlAMS79Uw";
+			this.webUrl = url;
+			console.log(e, url);
+			if(url != "") {
+				uni.navigateBack({
+					url: url
+				})
 			}
-			this.data = this.data.concat(data);
 		},
-
+		
 		/**
-		 * 轮播接口
-		 */
-		swiperData: function() {
-
-		},
-
-		/**
-		 * 获取热门图文
+		 * 获取热门图文-轮播
 		 */
 		getHotGraphic: function() {
 			common.requestURL({
@@ -192,27 +160,17 @@ export default {
 				})
 				.then(res => {
 					this.graphics = res.data;
-					this.graphics = [
-							{
-								id: 1,
-								url: '1111',
-								title: '标题',
-								description: 'description',
-								cover: 'cover'
-							}
-						];
-					console.log(this.graphics)
 				});
 		},
-		//轮播切换
-		change(e) {
-			this.current = e.detail.current
-		},
+		
 	}
 };
 </script>
 
 <style scoped>
+	.page {
+		background-color: #FFFFFF;
+	}
 .nav-list {
 	display: flex;
 	justify-content: space-around;
@@ -266,7 +224,8 @@ swiper {
 	overflow: hidden;
 }
 .swiper-item image {
-	width: 100%;
+	width: 100% !important;
 	height: 300rpx;
+	cursor: pointer;
 }
 </style>

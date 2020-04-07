@@ -1,43 +1,57 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/home/login/login",
+			"path": "pages/home/index/index",
 			"style": {
-				"navigationBarTitleText": "募校园",
-				// "navigationBarBackgroundColor":"#4C6FF3",
-				// "navigationBarTextStyle": "white",
-				"navigationStyle": "custom"
+				"navigationBarTitleText": "主页",
+				"enablePullDownRefresh": true,
+				"usingComponents": {
+					"graphiclist": "/wxcomponents/graphicList/graphicList"
+				}
 			}
 		},
 		{
-			"path": "pages/home/index/index",
+			"path": "pages/home/login/login",
 			"style": {
 				"navigationBarTitleText": "募校园",
-				"usingComponents": {
-					"search": "/wxcomponents/searchBar/searchBar",
-					"graphiclist": "/wxcomponents/graphicList/graphicList"
-				}
-				//, "navigationStyle": "custom"
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path": "pages/search/search",
 			"style": {
-				"navigationBarTitleText": "募校园"
+				"navigationBarTitleText": "搜索"
 			}
 		},
 		{
 			"path": "pages/teamRecruitment/index/index",
 			"style": {
-				"navigationBarTitleText": "募校园"
+				"navigationBarTitleText": "组队招募",
+				"usingComponents": {
+					// "search":"/wxcomponents/searchBar/searchBar",
+					"teamitem":"/wxcomponents/teamItem/teamItem"
+				}
+			}
+		},
+		{
+			"path": "pages/teamRecruitment/join/join",
+			"style": {
+				"navigationBarTitleText": "申请加入"
+			}
+		},
+		{
+			"path": "pages/teamRecruitment/release/release",
+			"style": {
+				"navigationBarTitleText": "组队招募发布"
 			}
 		},
 		{
 			"path": "pages/home/information/information",
 			"style": {
 				"navigationBarTitleText": "资讯",
+				"enablePullDownRefresh": true,
 				"usingComponents": {
-					"activecomponent": "/wxcomponents/activeList/activeList"
+					"graphiclist": "/wxcomponents/graphicList/graphicList"
 				}
 			}
 		},
@@ -46,7 +60,7 @@
 			"style": {
 				"navigationBarTitleText": "大学活动",
 				"usingComponents": {
-					"search":"/wxcomponents/searchBar/searchBar",
+					// "search": "/wxcomponents/searchBar/searchBar",
 					"activecomponent": "/wxcomponents/activeList/activeList"
 				}
 			}
@@ -54,39 +68,70 @@
 		{
 			"path": "pages/universityActivities/activityDetail/activityDetail",
 			"style": {
-				"navigationBarTitleText": "募校园"
+				"navigationBarTitleText": "活动详情",
+				"usingComponents": {
+					"teamitem":"/wxcomponents/teamItem/teamItem"
+				}
 			}
 		},
 		{
 			"path": "pages/userCentre/index/index",
 			"style": {
-				"navigationBarTitleText": "募校园"
+				"navigationBarTitleText": "个人主页",
+				"navigationBarBackgroundColor": "#4C6FF3"
 			}
 		},
-		
+		{
+			"path": "pages/userCentre/baseinfo/baseinfo",
+			"style": {
+				"navigationBarTitleText": "个人信息",
+				"navigationStyle": "custom",
+				"usingComponents": {}
+			}
+		},
+		{
+			"path": "pages/userCentre/navBackInfoVerify/navBackInfoVerify",
+			"style": {
+				"navigationBarTitleText": "个人信息绑定",
+				"navigationStyle": "custom",
+				"usingComponents": {
+
+				}
+			}
+		},
+		{
+			"path": "pages/userCentre/inform/inform",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "通知"
+			}
+		}, {
+			"path": "pages/userCentre/inform/infomdetails",
+			"style": {
+				"navigationBarTitleText": "通知详情",
+				"navigationStyle": "custom"
+			}
+		},
 		{
 			"path": "pages/home/web/web",
 			"style": {
 				"navigationBarTitleText": "募校园"
 			}
 		}
+
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "募校园",
-		"navigationBarBackgroundColor": "#F8F8F8",
+		"navigationBarBackgroundColor": "#FFFFFF",
 		"backgroundColor": "#F8F8F8"
-		// "enablePullDownRefresh": true,
-		// "backgroundTextStyle":"light"
 	},
-	"condition" : { //模式配置，仅开发期间生效
+	"condition": { //模式配置，仅开发期间生效
 		"current": 0, //当前激活的模式(list 的索引项)
-		"list": [
-			{
-				"name": "", //模式名称
-				"path": "", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			}
-		]
+		"list": [{
+			"name": "", //模式名称
+			"path": "", //启动页面，必选
+			"query": "" //启动参数，在页面的onLoad函数里面得到
+		}]
 	}
 }

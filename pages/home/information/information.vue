@@ -18,12 +18,26 @@
 					<view class="weui-tab__content" v-show="activeIndex == 0">
 						<view class="active-list">
 							<block v-for="item of activeArray" :key="item.index">
-								<activecomponent :activeUrl="item.activeUrl" :title="item.title" :content="item.content" :imgUrl="item.imgUrl"></activecomponent>
+								<graphiclist
+									:activeUrl="item.url"
+									:title="item.title"
+									:content="item.description"
+									:imgUrl="item.cover"
+								></graphiclist>
 							</block>
 						</view>
 					</view>
 					<view class="weui-tab__content" v-show="activeIndex == 1">
-						zixxx
+						<view class="active-list">
+							<block v-for="item of activeArray" :key="item.index">
+								<graphiclist
+									:activeUrl="item.url"
+									:title="item.title"
+									:content="item.description"
+									:imgUrl="item.cover"
+								></graphiclist>
+							</block>
+						</view>
 					</view>
 				</view>
 			</view>
@@ -48,29 +62,23 @@ export default {
 					title: '平台介绍'
 				}
 			],
-			activeIndex: 0,
+			activeIndex: 0, //0：精选资讯， 1：平台介绍
 			sliderLeft: 0,
 			sliderOffset: 0,
-			activeArray: [
-			  {
-				"activeUrl": "222",
-				"title": "222",
-				"content": "222",
-				"actiimgUrimgUrllveUrl": "222",
-			  
-			   },
-			   {
-				"activeUrl": "222",
-				"title": "222",
-				"content": "222",
-				"actiimgUrimgUrllveUrl": "222",
-			    }
-			]
+			activeArray: []
 		};
 	},
 	onLoad:function(){
 		//获取字体信息
 		common.fonts();
+		this.getlist(); //获取页面数据
+		uni.startPullDownRefresh();  //刷新
+	},
+	//停止刷新
+	onPullDownRefresh() {
+		setTimeout(function () {
+			uni.stopPullDownRefresh();
+		}, 1000);
 	},
 	onShow: function() {
 		let this_ = this;
@@ -82,17 +90,29 @@ export default {
 		});
 	},
 	computed: {
-		NoData() {
-			return this.activeArray.length;
-		}
+		
 	},
 	watch: {},
 	methods: {
 		tabClick: function(e) {
-			console.log('可以点击了');
 			this.sliderOffset = e.currentTarget.offsetLeft;
 			this.activeIndex = e.currentTarget.id;
-		}
+			this.getlist();
+		},
+		//获取页面数据
+		getlist() {
+			let url = "/graphic/selection";
+			if(this.activeIndex == 1) {
+				url = "/graphic/intro";
+			}
+			common.requestURL({
+				url: url,
+				method: 'GET',
+			}).then( res => {
+				this.activeArray = res.data;
+			})
+		},
+		
 	}
 };
 </script>

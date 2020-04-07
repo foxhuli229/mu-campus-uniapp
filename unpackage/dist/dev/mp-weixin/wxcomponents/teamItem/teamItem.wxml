@@ -1,11 +1,49 @@
 <!--pages/common/template/teamItem/teamItem.wxml-->
-<view class="weui-panel__bd">
+<view class="weui-panel__bd team-item">
   <view class="{{ellipsis?'ellipsis':'unellipsis'}}">
-    <view>
-      <image src='https://mumu-small.oss-cn-shenzhen.aliyuncs.com/images/head1.png'></image>
+    <view class="team-item-top">
+	  <view class="avatar-name">
+		  <image src='{{avatarUrl}}'></image>
+		  <view class="name-num">
+			  <view class="name">{{name}}</view>
+			  <view>
+				  <icon class="iconfont icon-shizhong" style="vertical-align: baseline;font-size: 24rpx;color: #4F6DF4;"></icon>
+				  <text>{{currentNum}}/{{totalNum}}</text>
+			  </view>
+		  </view>
+	  </view>
+	  <view>{{belong}}</view>
     </view>
-    <view></view>
+    <view class="team-item-bottom">
+		<view class="remaining-time">
+			<view>
+				<view>项目组队招募</view>
+				<view>
+					<text>组队剩余</text>
+					<text class="time">{{remainTime}}小时</text>
+					<text>结束</text>
+				</view>
+			</view>
+			<view bindtap='ellipsis'>{{ellipsis? '':'︿'}}</view>
+		</view>
+		<view class="content">{{content}}</view>
+		<view class="departments">
+			<block wx:for="{{range}}" wx:key="index">
+				<view class="department-item">{{item}}</view>
+			</block>
+		</view>
+		<view class="operate">
+			<button class="operate-btn tousu" type="default" size="mini">投诉</button>
+			<button class="operate-btn jiaru" type="default" size="mini" bindtap="toJoin">申请加入</button>
+			<icon class="iconfont icon-fenxiang" style="color: #4B6FF2;font-size: 40rpx;"></icon>
+		</view>
+	</view>
+    
   </view>
-  <view bindtap='ellipsis'>{{ellipsis?'展开信息 ▽':'收起信息 △'}}</view>
+  <view bindtap='ellipsis' class="{{ellipsis?'drop-down':'undrop-down'}}">
+	  <text>{{title}}</text>
+	  <text>﹀</text>
+	  
+  </view>
 
 </view>

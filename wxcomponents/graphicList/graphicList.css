@@ -1,0 +1,8 @@
+@import "/wxcomponents/activeList/activeList.css";
+.weui-media-box__hd {
+	width: 240rpx;
+	height: 180rpx;
+}
+.weui-media-box__hd image {
+	border-radius: 20rpx;
+}

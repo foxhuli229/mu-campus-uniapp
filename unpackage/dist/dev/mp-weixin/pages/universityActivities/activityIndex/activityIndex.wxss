@@ -1,4 +1,7 @@
 
+page.data-v-6ac977ce {
+	background-color: #ffffff;
+}
 .activitySwiper image.data-v-6ac977ce {
 	width: 100%;
 	height: 290rpx;
@@ -16,5 +19,9 @@ swiper.data-v-6ac977ce {
 /* 活动列表 */
 .active-list.data-v-6ac977ce {
 	padding: 34rpx 20rpx;
+}
+.uni-loadmore.data-v-6ac977ce {
+	text-align: center;
+	font-size: 24rpx;
 }
 

@@ -1,15 +1,25 @@
 <template>
 	<view class="login">
 		<!-- 自定义导航 -->
-		<view class="example-body">
-			<uni-nav-bar text="募校园" backgroundColor="#4C6FF3" circular="true" @clickLeft="back"/>
-		</view>
+		<!-- #ifndef H5 -->
+		<uni-nav-bar leftText="募校园" backgroundColor="#4C6FF3" circular="true" fixed="true"/>
+		<!-- #endif -->
+		<!-- #ifdef H5 -->
+		<uni-nav-bar title="募校园" backgroundColor="#4C6FF3" circular="true" fixed="true"/>
+		<!-- #endif -->
+		<view :style="{marginTop: marginTop}"></view>
 		<view class="login-center">
 			<image src="../../../static/logo.png"></image>
 			<text class="logintext">募校园</text>
+			<!-- #ifdef MP-WEIXIN -->
 			<button class="login-btn" open-type="getUserInfo" @getuserinfo="getUserInfo">
-				<text>一键登录</text>
+				<text>微信一键登录</text>
 			</button>
+			<!-- #endif -->
+			<!-- #ifndef MP-WEIXIN -->
+			
+			<!-- #endif -->
+			
 		</view>
 	</view>
 </template>
@@ -23,54 +33,74 @@ export default {
 		uniNavBar
 	},
 	data() {
-		return {};
+		return {
+			marginTop: 0, //高度
+		};
 	},
-	onLoad: () => {
-		common.fonts(); //网络字体
+	onLoad() {
+		uni.stopPullDownRefresh(); //停止刷新
+		this.marginTop = this.$store.state.SET_CUSTOM_BAR + 25 + 'px';
+	},
+	onShow() {
+		this.marginTop = this.$store.state.SET_CUSTOM_BAR + 25 + 'px';
 	},
 	methods: {
-		//返回
-		back() {
-			uni.navigateBack({
-				delta: 1
-			});
-		},
 		getUserInfo(res) {
 			//获取用户信息
-			console.log(res);
+			let this_ = this;
+			console.log(this)
 			let iv = res.detail.iv;
 			let encryptedData = res.detail.encryptedData;
-			uni.login({
-				provider: 'weixin',
-				success: res => {
-					let code = res.code;
-					common
-						.requestURL({
-							url: '/user/wxlogin',
-							method: 'POST',
-							params: JSON.stringify({ code, encryptedData, iv })
-						})
-						.then(res => {
-							console.log(res);
-							if (res.code === 200) {
-								uni.setStorage({key: 'token',data: res.data.token});
-								uni.setStorage({key: "userinfolist",data: res.data.user});
-								
-								uni.redirectTo({
-									url: "../index/index"
-								})
-							}else {
+			uni.getProvider({
+				service: 'oauth',
+				success(ProvRes) {
+					console.log(ProvRes)
+					if(~ProvRes.provider.indexOf("weixin")) {
+						uni.login({
+							provider: 'weixin',
+							success:function(res){
+								let code = res.code;
+								common
+									.requestURL({
+										url: '/user/wxlogin',
+										method: 'POST',
+										params: JSON.stringify({ code, encryptedData, iv })
+									})
+									.then(res => {
+										if (res.code == 200) {
+											this_.$store.commit("userinfolist", res.data.user)
+											this_.$store.commit("token", res.data.token);
+											uni.redirectTo({
+												url: "../index/index"
+											})
+										}else {
+											uni.showModal({
+												title: '提示',
+												content: '登录失败,请重试！',
+											})
+										}
+									});
+							},
+							fail: res => {
+								console.log('拒绝了');
 								uni.showModal({
-									title: '提示',
-									content: '登录失败,请重试！',
+									title:"温馨提示",
+									content: "请同意！",
+									showCancel: false,
 								})
 							}
 						});
-				},
-				fail: res => {
-					console.log('拒绝了');
+					}else {
+						uni.showModal({
+							title:"温馨提示",
+							content: "目前暂不支持，其他设备登录！",
+							showCancel: false,
+						})
+					}
+						
 				}
-			});
+			})
+			
 		}
 	}
 };
@@ -78,6 +108,7 @@ export default {
 
 <style scoped>
 .login {
+	overflow: hidden;
 	text-align: center;
 }
 .login image {

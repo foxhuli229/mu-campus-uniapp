@@ -2,19 +2,111 @@
 @import '/wxcomponents/weui.wxss';
 @import '/wxcomponents/iconfont.wxss';
 
+.team-item{
+	border-radius: 20rpx;
+	font-size: 24rpx;
+	color: #4A576A;
+	margin-bottom: 20rpx;
+}
+.drop-down{
+	background-color: #F8F8F8;
+	border-radius: 0 0 20rpx 20rpx;
+	padding: 24rpx 18rpx;
+	border-top: 1rpx solid #A2B9FD;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.undrop-down{
+	display: none;
+}
 /* 修改列数 3行 */
 .ellipsis {
-    display: -webkit-box;
+    /* display: -webkit-box;
     -webkit-box-orient:vertical;
     text-overflow: ellipsis;
     overflow:hidden;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 3; */
+	height: 144rpx;
+	overflow: hidden;
+	background-color: #F8F8F8;
+	border-radius: 20rpx 20rpx 0 0;
 }
 /* 展示全部 */
 .unellipsis {
-  display: -webkit-box;
+/*  display: -webkit-box;
   -webkit-box-orient:vertical;
   text-overflow: ellipsis;
   overflow:hidden;
-  -webkit-line-clamp: 0;
-}
+  -webkit-line-clamp: 0;*/
+  height: auto;
+  overflow: unset;
+  background-color:#FFFFFF
+ }
+ .team-item-top{
+	 display: flex;
+	 justify-content: space-between;
+	 align-items: center;
+	 padding: 22rpx 19rpx;
+ }
+  .team-item-top image{
+	  width: 86rpx;
+	  height: 86rpx;
+	  border-radius: 50%;
+	  margin-right: 26rpx;
+  }
+  .avatar-name{
+	  display: flex;
+	  align-items: center;
+  }
+  .avatar-name .name{
+	  font-size: 28rpx;
+	  font-weight: bold;
+  }
+  .remaining-time{
+	  display: flex;
+	  align-items: center;
+	  justify-content: space-between;
+	  font-size: 26rpx;
+	  color: #4C6FF3;
+  }
+  .remaining-time .time{
+	  color: #FF3B3B;
+	  margin: 0 10rpx;
+  }
+  .team-item-bottom{
+  	 padding: 22rpx 19rpx;
+  }
+  .team-item-bottom .content{
+	  margin: 34rpx 0;
+  }
+  .departments{
+	  display: flex;
+	  color: #4C6FF3;
+	  font-size: 24rpx;
+	  flex-wrap: wrap;
+  }
+  .department-item{
+	  padding: 8rpx 15rpx;
+	  border: 1rpx solid #4C6FF3;
+	  border-radius: 6rpx;
+	  margin-right: 40rpx;
+	  margin-bottom: 34rpx;
+  }
+  .operate{
+	  display: flex;
+	  align-items: center;
+	  justify-content: space-around;
+  }
+  button.operate-btn{
+	  background-color: #4C6FF3;
+	  color: #fff;
+	  font-size: 26rpx;
+	  /* padding: 0; */
+  }
+  button.tousu{
+	  width: 25%;
+  }
+  button.jiaru{
+	  width: 55%;
+  }

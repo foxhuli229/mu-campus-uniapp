@@ -7,5 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "fox",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@vant/weapp": "^1.1.0",
+    "async-validator": "^3.2.4",
+    "vuex": "^3.1.3"
+  }
 }

@@ -1,6 +1,7 @@
 {
-  "navigationBarTitleText": "募校园",
+  "navigationBarTitleText": "活动详情",
   "usingComponents": {
-    "uni-swiper-dot": "/components/uni-swiper-dot/uni-swiper-dot"
+    "uni-swiper-dot": "/components/uni-swiper-dot/uni-swiper-dot",
+    "teamitem": "/wxcomponents/teamItem/teamItem"
   }
 }

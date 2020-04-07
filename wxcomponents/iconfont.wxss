@@ -49,3 +49,30 @@
 .icon-iconfontzhizuobiaozhun20:before {
   content: "\e614";
 }
+.icon-xin:before {
+  content: "\e641";
+}
+
+.icon-xin1:before {
+  content: "\e603";
+}
+
+.icon-xin2:before {
+  content: "\e699";
+}
+
+.icon-xiangxiajiantou:before {
+  content: "\e651";
+}
+
+.icon-xiangxiajiantou1:before {
+  content: "\e658";
+}
+
+.icon-35_xiangxiajiantou:before {
+  content: "\e615";
+}
+
+.icon-xiangxiajiantou2:before {
+  content: "\e673";
+}

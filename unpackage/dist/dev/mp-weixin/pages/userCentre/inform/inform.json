@@ -1,0 +1,10 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "通知",
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "uni-swipe-action": "/components/uni-swipe-action/uni-swipe-action",
+    "uni-swipe-action-item": "/components/uni-swipe-action-item/uni-swipe-action-item",
+    "uni-icons": "/components/uni-icons/uni-icons"
+  }
+}

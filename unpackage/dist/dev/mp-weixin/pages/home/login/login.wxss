@@ -1,5 +1,6 @@
 
 .login.data-v-a64a4c44 {
+	overflow: hidden;
 	text-align: center;
 }
 .login image.data-v-a64a4c44 {

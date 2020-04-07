@@ -82,8 +82,20 @@
             "mode" : "history",
             "base" : "mu-hs"
         },
-        "devServer" : {
-            "port" : 8011
+        "devServer": {
+            "port" : 8011,
+			"disableHostCheck": true,
+			"proxy": {
+				"/api": {
+					"target": "http://192.168.0.5:8025",
+					"changeOrigin": true,
+					"secure": false,
+					"ws": true,
+					"pathRewrite": { 
+						"^/api": ""
+					}
+				}
+			}
         },
         "sdkConfigs" : {
             "maps" : {}

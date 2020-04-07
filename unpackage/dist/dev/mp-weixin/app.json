@@ -1,23 +1,29 @@
 {
   "pages": [
-    "pages/home/login/login",
     "pages/home/index/index",
+    "pages/home/login/login",
     "pages/search/search",
     "pages/teamRecruitment/index/index",
+    "pages/teamRecruitment/join/join",
+    "pages/teamRecruitment/release/release",
     "pages/home/information/information",
     "pages/universityActivities/activityIndex/activityIndex",
     "pages/universityActivities/activityDetail/activityDetail",
     "pages/userCentre/index/index",
+    "pages/userCentre/baseinfo/baseinfo",
+    "pages/userCentre/navBackInfoVerify/navBackInfoVerify",
+    "pages/userCentre/inform/inform",
+    "pages/userCentre/inform/infomdetails",
     "pages/home/web/web"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "募校园",
-    "navigationBarBackgroundColor": "#F8F8F8",
+    "navigationBarBackgroundColor": "#FFFFFF",
     "backgroundColor": "#F8F8F8"
   },
   "permission": {},
   "usingComponents": {},
-  "sitemapLocation": "sitemap88.json"
+  "sitemapLocation": "sitemap31.json"
 }

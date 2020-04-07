@@ -12,7 +12,11 @@ Component({
     title: { type: String, value: '' },
     content: { type: String, value: '' },
     imgUrl: { type: String, value: '' },
-    date: { type: String, value: '' }
+    date: { type: String, value: '' },
+	label: {
+		type: [Boolean, String],
+		value: false
+	}
   },
 
   /**

@@ -1,9 +1,10 @@
 {
-  "navigationBarTitleText": "募校园",
+  "navigationBarTitleText": "主页",
+  "enablePullDownRefresh": true,
   "usingComponents": {
+    "uni-search-bar": "/components/uni-search-bar/uni-search-bar",
     "uni-swiper-dot": "/components/uni-swiper-dot/uni-swiper-dot",
     "graphiclist": "/wxcomponents/graphicList/graphicList",
-    "search": "/wxcomponents/searchBar/searchBar",
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar"
   }
 }
