@@ -181,7 +181,7 @@ var common = __webpack_require__(/*! ../../../publicjs/common.js */ 23);var uniN
       picture: 'https://cdn.jsdelivr.net/gh/foxhuli229/cdn@1.4/images/z_avater.png' };
 
   },
-  onShow: function onShow(option) {
+  onLoad: function onLoad(option) {
     if (option !== "") {
       var param = JSON.parse(option.item);
       this.pagesurl = param.pagesurl;

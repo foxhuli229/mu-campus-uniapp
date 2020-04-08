@@ -168,10 +168,7 @@ export default {
 			pagesurl: ''
 		};
 	},
-	created() {
-		
-	},
-	onShow(option) {
+	onLoad(option) {
 		if(option !== "") {
 			let param = JSON.parse(option.item);
 			this.pagesurl = param.pagesurl;

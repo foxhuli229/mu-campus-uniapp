@@ -30,6 +30,15 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+	//页面跳转
+	gonewWeb(e) {
+		let url = e.currentTarget.dataset.imgurl;
+		url= encodeURIComponent(url)
+		if (url != '') {
+			wx.navigateTo({
+				url: "/pages/home/web/web?url=" + url
+			});
+		}
+	},
   }
 })

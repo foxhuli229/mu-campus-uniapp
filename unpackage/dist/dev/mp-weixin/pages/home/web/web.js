@@ -137,10 +137,23 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 var _default =
 {
+  name: 'web',
+  props: {
+    url: {
+      type: String,
+      url: '' } },
+
+
   data: function data() {
     return {};
 
 
+  },
+  onLoad: function onLoad(option) {
+    console.log(option);
+    if (option != null && typeof option.url != "undefined") {
+      this.url = decodeURIComponent(option.url);
+    }
   },
   methods: {} };exports.default = _default;
 

@@ -1,6 +1,6 @@
 <template>
 <uni-shadow-root class="graphicList-graphicList"><view class="weui-panel__bd">
-  <navigator :url="activeUrl" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+  <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" :data-imgurl="activeUrl" @click="gonewWeb">
     <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
       <image class="weui-media-box__thumb" :src="imgUrl" style="border-radius: 20rpx;"></image>
     </view>
@@ -9,7 +9,7 @@
       <view class="weui-media-box__desc">{{content}}</view>
       <view class="weui-media-box__date"><icon class="iconfont icon-shizhong" v-if="label"></icon>{{date}}</view>
     </view>
-  </navigator>
+  </view>
 </view></uni-shadow-root>
 </template>
 
@@ -50,7 +50,16 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+	//页面跳转
+	gonewWeb(e) {
+		let url = e.currentTarget.dataset.imgurl;
+		url= encodeURIComponent(url)
+		if (url != '') {
+			wx.navigateTo({
+				url: "/pages/home/web/web?url=" + url
+			});
+		}
+	},
   }
 })
 export default global['__wxComponents']['graphicList/graphicList']

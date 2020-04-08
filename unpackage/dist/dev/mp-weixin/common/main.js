@@ -141,7 +141,7 @@ var app = getApp();var _default =
   //全局变量
   globalData: {
     //主机域名 https://www.gomumu.top
-    host: 'http://www.gomumu.top',
+    host: 'http://192.168.0.9:8025',
     //OSS 存储系统域名
     oosHost: 'https://cmrs-oos.oss-cn-beijing.aliyuncs.com/' //图片host
     // "nickname": '',

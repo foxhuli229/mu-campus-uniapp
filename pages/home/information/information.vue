@@ -65,14 +65,48 @@ export default {
 			activeIndex: 0, //0：精选资讯， 1：平台介绍
 			sliderLeft: 0,
 			sliderOffset: 0,
-			activeArray: []
+			activeArray: [
+				 {
+					"id":"1246713382376099844",
+					"cover":"http://cmrs-oos.oss-cn-beijing.aliyuncs.com/sys/index_banner.jpg",
+					"title":"新一年的第一场比赛来啦",
+					"description":"2月17日，位于日内瓦的世界贸 。易组织总部并不平静。 当天，WTO...",
+					"url":"https://mp.weixin.qq.com/s/xh-fiDHvn30XD7bUX5ttVg",
+					"type":null,
+					"isDel":null,
+					"gmt_create":null
+				},
+				{
+					"id":"1246713382376099845",
+					"cover":"http://cmrs-oos.oss-cn-beijing.aliyuncs.com/sys/index_banner.jpg",
+					"title":"新一年的第一场比赛来啦",
+					"description":"2月17日，位于日内瓦的世界贸 。易组织总部并不平静。 当天，WTO...",
+					"url":"https://mp.weixin.qq.com/s/xh-fiDHvn30XD7bUX5ttVg",
+					"type":null,
+					"isDel":null,
+					"gmt_create":null
+				},
+				{
+					"id":"1246713382376099846",
+					"cover":"http://cmrs-oos.oss-cn-beijing.aliyuncs.com/sys/index_banner.jpg",
+					"title":"新一年的第一场比赛来啦",
+					"description":"2月17日，位于日内瓦的世界贸 。易组织总部并不平静。 当天，WTO...",
+					"url":"https://mp.weixin.qq.com/s/xh-fiDHvn30XD7bUX5ttVg",
+					"type":null,
+					"isDel":null,
+					"gmt_create":null
+				}
+			]
 		};
 	},
 	onLoad:function(){
+	
+	},
+	onShow() {
 		//获取字体信息
 		common.fonts();
-		this.getlist(); //获取页面数据
-		uni.startPullDownRefresh();  //刷新
+		// this.getlist(); //获取页面数据
+		// uni.startPullDownRefresh();  //刷新
 	},
 	//停止刷新
 	onPullDownRefresh() {
@@ -95,9 +129,51 @@ export default {
 	watch: {},
 	methods: {
 		tabClick: function(e) {
+			let this_ = this;
 			this.sliderOffset = e.currentTarget.offsetLeft;
 			this.activeIndex = e.currentTarget.id;
-			this.getlist();
+			// this.getlist();
+			
+			this.activeArray = [];
+			uni.showLoading({
+				title: "加载中"
+			})
+			setTimeout(function() {
+				this_.activeArray = [
+				 {
+					"id":"1246713382376099844",
+					"cover":"http://cmrs-oos.oss-cn-beijing.aliyuncs.com/sys/index_banner.jpg",
+					"title":"新一年的第一场比赛来啦",
+					"description":"2月17日，位于日内瓦的世界贸 。易组织总部并不平静。 当天，WTO...",
+					"url":"https://mp.weixin.qq.com/s/xh-fiDHvn30XD7bUX5ttVg",
+					"type":null,
+					"isDel":null,
+					"gmt_create":null
+				},
+				{
+					"id":"1246713382376099845",
+					"cover":"http://cmrs-oos.oss-cn-beijing.aliyuncs.com/sys/index_banner.jpg",
+					"title":"新一年的第一场比赛来啦",
+					"description":"2月17日，位于日内瓦的世界贸 。易组织总部并不平静。 当天，WTO...",
+					"url":"https://mp.weixin.qq.com/s/xh-fiDHvn30XD7bUX5ttVg",
+					"type":null,
+					"isDel":null,
+					"gmt_create":null
+				},
+				{
+					"id":"1246713382376099846",
+					"cover":"http://cmrs-oos.oss-cn-beijing.aliyuncs.com/sys/index_banner.jpg",
+					"title":"新一年的第一场比赛来啦",
+					"description":"2月17日，位于日内瓦的世界贸 。易组织总部并不平静。 当天，WTO...",
+					"url":"https://mp.weixin.qq.com/s/xh-fiDHvn30XD7bUX5ttVg",
+					"type":null,
+					"isDel":null,
+					"gmt_create":null
+				}
+			]
+			
+			uni.hideLoading()
+			}, 300)
 		},
 		//获取页面数据
 		getlist() {

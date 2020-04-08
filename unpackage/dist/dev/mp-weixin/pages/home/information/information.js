@@ -181,7 +181,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _common = _interopRequireDefault(__webpack_require__(/*! ../../../publicjs/common.js */ 23));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
+var _common = _interopRequireDefault(__webpack_require__(/*! ../../../publicjs/common.js */ 23));var _data$onLoad$onShow$o;function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;} //
 //
 //
 //
@@ -229,22 +229,98 @@ var _common = _interopRequireDefault(__webpack_require__(/*! ../../../publicjs/c
 //
 //
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
-var app = getApp();var _default = { data: function data() {return { tabs: [{ icon: 'icon-zixun', title: '精选资讯' }, { icon: 'icon-pingtaiguanli', title: '平台介绍' }], activeIndex: 0, //0：精选资讯， 1：平台介绍
-      sliderLeft: 0, sliderOffset: 0, activeArray: [] };}, onLoad: function onLoad() {//获取字体信息
-    _common.default.fonts();this.getlist(); //获取页面数据
-    uni.startPullDownRefresh(); //刷新
-  }, //停止刷新
-  onPullDownRefresh: function onPullDownRefresh() {setTimeout(function () {uni.stopPullDownRefresh();}, 1000);}, onShow: function onShow() {var this_ = this;uni.getSystemInfo({ success: function success(res) {this_.sliderLeft = (res.windowWidth / this_.tabs.length - sliderWidth) / 2;this_.sliderOffset = res.windowWidth / this_.tabs.length * this_.activeIndex;} });}, computed: {}, watch: {}, methods: { tabClick: function tabClick(e) {this.sliderOffset = e.currentTarget.offsetLeft;this.activeIndex = e.currentTarget.id;this.getlist();}, //获取页面数据
-    getlist: function getlist() {var _this = this;var url = "/graphic/selection";if (this.activeIndex == 1) {
-        url = "/graphic/intro";
-      }
-      _common.default.requestURL({
-        url: url,
-        method: 'GET' }).
-      then(function (res) {
-        _this.activeArray = res.data;
-      });
-    } } };exports.default = _default;
+var app = getApp();var _default = (_data$onLoad$onShow$o = { data: function data() {return { tabs: [{ icon: 'icon-zixun', title: '精选资讯' }, { icon: 'icon-pingtaiguanli', title: '平台介绍' }], activeIndex: 0, //0：精选资讯， 1：平台介绍
+      sliderLeft: 0, sliderOffset: 0, activeArray: [{ "id": "1246713382376099844", "cover": "http://cmrs-oos.oss-cn-beijing.aliyuncs.com/sys/index_banner.jpg", "title": "新一年的第一场比赛来啦", "description": "2月17日，位于日内瓦的世界贸 。易组织总部并不平静。 当天，WTO...", "url": "https://mp.weixin.qq.com/s/xh-fiDHvn30XD7bUX5ttVg", "type": null, "isDel": null, "gmt_create": null }, { "id": "1246713382376099845", "cover": "http://cmrs-oos.oss-cn-beijing.aliyuncs.com/sys/index_banner.jpg", "title": "新一年的第一场比赛来啦", "description": "2月17日，位于日内瓦的世界贸 。易组织总部并不平静。 当天，WTO...", "url": "https://mp.weixin.qq.com/s/xh-fiDHvn30XD7bUX5ttVg", "type": null, "isDel": null, "gmt_create": null }, { "id": "1246713382376099846", "cover": "http://cmrs-oos.oss-cn-beijing.aliyuncs.com/sys/index_banner.jpg", "title": "新一年的第一场比赛来啦", "description": "2月17日，位于日内瓦的世界贸 。易组织总部并不平静。 当天，WTO...", "url": "https://mp.weixin.qq.com/s/xh-fiDHvn30XD7bUX5ttVg", "type": null, "isDel": null, "gmt_create": null }] };
+  },
+  onLoad: function onLoad() {
+
+  },
+  onShow: function onShow() {
+    //获取字体信息
+    _common.default.fonts();
+    // this.getlist(); //获取页面数据
+    // uni.startPullDownRefresh();  //刷新
+  },
+  //停止刷新
+  onPullDownRefresh: function onPullDownRefresh() {
+    setTimeout(function () {
+      uni.stopPullDownRefresh();
+    }, 1000);
+  } }, _defineProperty(_data$onLoad$onShow$o, "onShow",
+function onShow() {
+  var this_ = this;
+  uni.getSystemInfo({
+    success: function success(res) {
+      this_.sliderLeft = (res.windowWidth / this_.tabs.length - sliderWidth) / 2;
+      this_.sliderOffset = res.windowWidth / this_.tabs.length * this_.activeIndex;
+    } });
+
+}), _defineProperty(_data$onLoad$onShow$o, "computed",
+{}), _defineProperty(_data$onLoad$onShow$o, "watch",
+
+
+{}), _defineProperty(_data$onLoad$onShow$o, "methods",
+{
+  tabClick: function tabClick(e) {
+    var this_ = this;
+    this.sliderOffset = e.currentTarget.offsetLeft;
+    this.activeIndex = e.currentTarget.id;
+    // this.getlist();
+
+    this.activeArray = [];
+    uni.showLoading({
+      title: "加载中" });
+
+    setTimeout(function () {
+      this_.activeArray = [
+      {
+        "id": "1246713382376099844",
+        "cover": "http://cmrs-oos.oss-cn-beijing.aliyuncs.com/sys/index_banner.jpg",
+        "title": "新一年的第一场比赛来啦",
+        "description": "2月17日，位于日内瓦的世界贸 。易组织总部并不平静。 当天，WTO...",
+        "url": "https://mp.weixin.qq.com/s/xh-fiDHvn30XD7bUX5ttVg",
+        "type": null,
+        "isDel": null,
+        "gmt_create": null },
+
+      {
+        "id": "1246713382376099845",
+        "cover": "http://cmrs-oos.oss-cn-beijing.aliyuncs.com/sys/index_banner.jpg",
+        "title": "新一年的第一场比赛来啦",
+        "description": "2月17日，位于日内瓦的世界贸 。易组织总部并不平静。 当天，WTO...",
+        "url": "https://mp.weixin.qq.com/s/xh-fiDHvn30XD7bUX5ttVg",
+        "type": null,
+        "isDel": null,
+        "gmt_create": null },
+
+      {
+        "id": "1246713382376099846",
+        "cover": "http://cmrs-oos.oss-cn-beijing.aliyuncs.com/sys/index_banner.jpg",
+        "title": "新一年的第一场比赛来啦",
+        "description": "2月17日，位于日内瓦的世界贸 。易组织总部并不平静。 当天，WTO...",
+        "url": "https://mp.weixin.qq.com/s/xh-fiDHvn30XD7bUX5ttVg",
+        "type": null,
+        "isDel": null,
+        "gmt_create": null }];
+
+
+
+      uni.hideLoading();
+    }, 300);
+  },
+  //获取页面数据
+  getlist: function getlist() {var _this = this;
+    var url = "/graphic/selection";
+    if (this.activeIndex == 1) {
+      url = "/graphic/intro";
+    }
+    _common.default.requestURL({
+      url: url,
+      method: 'GET' }).
+    then(function (res) {
+      _this.activeArray = res.data;
+    });
+  } }), _data$onLoad$onShow$o);exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

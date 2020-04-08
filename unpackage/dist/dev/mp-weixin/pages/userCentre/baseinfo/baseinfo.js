@@ -138,7 +138,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _components$data$crea;function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;} //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -275,11 +275,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var app = getApp();
 var common = __webpack_require__(/*! ../../../publicjs/common.js */ 23);
-var utils = __webpack_require__(/*! ../../../utils/utils.js */ 108);var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 46));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniIcons = function uniIcons() {Promise.all(/*! require.ensure | components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-icons/uni-icons")]).then((function () {return resolve(__webpack_require__(/*! @/components/uni-icons/uni-icons.vue */ 157));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = (_components$data$crea = {
+var utils = __webpack_require__(/*! ../../../utils/utils.js */ 108);var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 46));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniIcons = function uniIcons() {Promise.all(/*! require.ensure | components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-icons/uni-icons")]).then((function () {return resolve(__webpack_require__(/*! @/components/uni-icons/uni-icons.vue */ 157));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
-
+{
   components: {
     uniNavBar: uniNavBar,
     uniIcons: uniIcons },
@@ -308,93 +308,90 @@ var utils = __webpack_require__(/*! ../../../utils/utils.js */ 108);var uniNavBa
       pagesurl: '' };
 
   },
-  created: function created() {
-
-  },
-  onShow: function onShow(option) {
+  onLoad: function onLoad(option) {
     if (option !== "") {
       var param = JSON.parse(option.item);
       this.pagesurl = param.pagesurl;
     }
-  } }, _defineProperty(_components$data$crea, "onShow", function onShow()
-{
-  this.marginTop = this.$store.state.SET_CUSTOM_BAR + 25 + 'px';
+  },
+  onShow: function onShow() {
+    this.marginTop = this.$store.state.SET_CUSTOM_BAR + 25 + 'px';
 
 
 
-  this.viewTop = this.$store.state.SET_CUSTOM_BAR;
-}), _defineProperty(_components$data$crea, "mounted", function mounted()
-{
-
-}), _defineProperty(_components$data$crea, "watch",
-{
-  pagesurl: function pagesurl(newVal, val) {
-    //需要跳转返回的页面
-    this.pagesurl = newVal;
-    return newVal;
-  } }), _defineProperty(_components$data$crea, "methods",
-
-{
-  //打开手机的图库, 头像上传
-  chooseImage: function chooseImage(event) {var _this = this;
-    uni.chooseImage({
-      count: 1,
-      sourceType: 'album',
-      success: function success(res) {
-        console.log(res);
-        _this.avatar = res.tempFilePaths[0];
-      },
-      fail: function fail(err) {
-
-        uni.getSetting({
-          success: function success(res) {
-            var authStatus = res.authSetting['scope.album'] && res.authSetting['scope.camera'];
-            if (!authStatus) {
-              uni.showModal({
-                title: '授权失败',
-                content: '需要从您的相册获取图片，请在设置界面打开相关权限',
-                success: function success(res) {
-                  if (res.confirm) {
-                    uni.openSetting();
-                  }
-                } });
-
-            }
-          } });
-
-
-      } });
+    this.viewTop = this.$store.state.SET_CUSTOM_BAR;
+  },
+  mounted: function mounted() {
 
   },
+  watch: {
+    pagesurl: function pagesurl(newVal, val) {
+      //需要跳转返回的页面
+      this.pagesurl = newVal;
+      return newVal;
+    } },
 
-  navskip: function navskip(event, title, value) {
-    console.log(this[value]);
-    var param = {
-      pagesurl: "/pages/userCentre/baseinfo/baseinfo",
-      leftIcon: "arrowleft",
-      leftText: "个人信息",
-      backgroundColor: "#4C6FF3",
-      circular: "true",
-      title: title,
-      "avatar": this.avatar,
-      "value": this[value] };
+  methods: {
+    //打开手机的图库, 头像上传
+    chooseImage: function chooseImage(event) {var _this = this;
+      uni.chooseImage({
+        count: 1,
+        sourceType: 'album',
+        success: function success(res) {
+          console.log(res);
+          _this.avatar = res.tempFilePaths[0];
+        },
+        fail: function fail(err) {
 
-    param = JSON.stringify(param);
-    uni.navigateTo({
-      url: "../navBackInfoVerify/navBackInfoVerify?item=" + param });
+          uni.getSetting({
+            success: function success(res) {
+              var authStatus = res.authSetting['scope.album'] && res.authSetting['scope.camera'];
+              if (!authStatus) {
+                uni.showModal({
+                  title: '授权失败',
+                  content: '需要从您的相册获取图片，请在设置界面打开相关权限',
+                  success: function success(res) {
+                    if (res.confirm) {
+                      uni.openSetting();
+                    }
+                  } });
 
-  },
+              }
+            } });
 
-  radioChange: function radioChange(event) {
-    this.sex = event.target.value;
-  },
-  //出生日期
-  bindDateChange: function bindDateChange(e) {
-    this.date = e.detail.value;
-  },
-  saveBseInfo: function saveBseInfo() {
 
-  } }), _components$data$crea);exports.default = _default;
+        } });
+
+    },
+
+    navskip: function navskip(event, title, value) {
+      console.log(this[value]);
+      var param = {
+        pagesurl: "/pages/userCentre/baseinfo/baseinfo",
+        leftIcon: "arrowleft",
+        leftText: "个人信息",
+        backgroundColor: "#4C6FF3",
+        circular: "true",
+        title: title,
+        "avatar": this.avatar,
+        "value": this[value] };
+
+      param = JSON.stringify(param);
+      uni.navigateTo({
+        url: "../navBackInfoVerify/navBackInfoVerify?item=" + param });
+
+    },
+
+    radioChange: function radioChange(event) {
+      this.sex = event.target.value;
+    },
+    //出生日期
+    bindDateChange: function bindDateChange(e) {
+      this.date = e.detail.value;
+    },
+    saveBseInfo: function saveBseInfo() {
+
+    } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

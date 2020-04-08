@@ -24,8 +24,6 @@
 				<view class="weui-navbar__slider" :style="{ left: `${sliderLeft}px`, transform: `translateX(${sliderOffset}px)` }"></view>
 			</view>
 		</view>
-		
-		
 
 		<!-- 内容 -->
 		<block>
@@ -85,14 +83,35 @@ export default {
 			sliderLeft: 0,
 	
 			//活动详情
+			// vo: {
+			// 	theme: '',
+			// 	postUnit: '',
+			// 	applyStartTime: '',
+			// 	applyDeadline: '',
+			// 	crowd: '',
+			// 	note: '',
+			// },
+			
 			vo: {
-				theme: '',
-				postUnit: '',
-				applyStartTime: '',
-				applyDeadline: '',
-				crowd: '',
-				note: '',
+				"id":"00006",
+				"theme":"微电影大赛",
+				"posters":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586104414589&di=15e8b9148233e7d8e130ff63cd36a87a&imgtype=0&src=http%3A%2F%2Fwww.hrtv.cn%2Ftemplets%2Fdefault%2F2017new%2Fimage%2Fsmallvideo.jpg",
+				"document":"https://cmrs-dev.oss-cn-chengdu.aliyuncs.com/adocment/%E8%81%8C%E4%B8%9A%E7%94%9F%E6%B6%AF%E8%A7%84%E5%88%92%E9%97%AE%E9%A2%98.docx",
+				"postUnit":"重庆文理学院",
+				"types":"艺术",
+				"crowd":"重庆文理学院全校学生",
+				"region":"校级",
+				"note":"重庆文理学院",
+				"city":"重庆",
+				"district":"永川区",
+				"college":"重庆文理学院",
+				"department":"全体学生",
+				"applyStartTime":"2020-05-20",
+				"applyDeadline":"2020-05-27",
+				"openTeam":0
 			},
+			
+			
 			activeParams: {
 				id: "", //活动参数值
 			},
@@ -112,12 +131,14 @@ export default {
 			]
 		};
 	},
-	onShow: function(option) {
-		//获取字体
-		common.fonts();
+	onLoad(option) {
 		if(typeof option != "undefined" || option != "") {
 			this.activeParams.id = option.url
 		}
+	},
+	onShow() {
+		//获取字体
+		common.fonts();
 		this.getlist(); 
 		this.checkCollect(); //检查是否收藏
 	},

@@ -24,7 +24,15 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
+			"current": -1,
+			"list": []
+		},
+		"gamePlugin": {
 			"current": -1,
 			"list": []
 		},
@@ -32,10 +40,11 @@
 			"current": 0,
 			"list": [
 				{
-					"name": "",
-					"path": "",
+					"id": 0,
+					"name": "团队招募发布",
+					"pathName": "pages/teamRecruitment/release/release",
 					"query": "",
-					"id": 0
+					"scene": null
 				}
 			]
 		}

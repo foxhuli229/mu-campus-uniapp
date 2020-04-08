@@ -80,15 +80,46 @@ export default {
 			duration: 1000,
 			//活动列表数据
 			records: [
-				// {
-				// 	id: 6,
-				// 	theme: '微电影大赛',
-				// 	description: ' 为进一-步推动社会 主义文化大发展大繁荣，展现当代大学生文化追求与创作才华，特举办此次比赛。',
-				// 	posters:
-				// 		'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586104414589&di=15e8b9148233e7d8e130ff63cd36a87a&imgtype=0&src=http%3A%2F%2Fwww.hrtv.cn%2Ftemplets%2Fdefault%2F2017new%2Fimage%2Fsmallvideo.jpg',
-				// 	region: '校级',
-				// 	applyDeadline: '2020-05-27'
-				// }
+				{
+					"id":"00006",
+					"theme":"微电影大赛",
+					"description":" 为进一-步推动社会 主义文化大发展大繁荣，展现当代大学生文化追求与创作才华，特举办此次比赛。",
+					"posters":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586104414589&di=15e8b9148233e7d8e130ff63cd36a87a&imgtype=0&src=http%3A%2F%2Fwww.hrtv.cn%2Ftemplets%2Fdefault%2F2017new%2Fimage%2Fsmallvideo.jpg",
+					"region":"校级",
+					"applyDeadline":"2020-05-27"
+				},
+				{
+					"id":"00007",
+					"theme":"演讲比赛",
+					"description":"为了丰富文化节内容和广大同学的课余生活，加强课堂学习和交流，提高同学们的学习积极性，特此举办此次比赛。",
+					"posters":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586105082037&di=b21e3b3674e6e9e9bb749ceb737de869&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F17%2F06%2F17%2F70dc66ff6da60b2e2f7bccbef0535f5f.jpg",
+					"region":"校级",
+					"applyDeadline":"2020-05-27"
+				},
+				{
+					"id":"00005",
+					"theme":"羽毛球大赛",
+					"description":"为促进球友之间的交流,给大家营造一种良好的运动氛围,加强体育锻炼, 增强体质,为更好的工作生活打下良好的身体素质基础。",
+					"posters":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586104000911&di=0006ec4342af6ec2c71b8c82d4c53939&imgtype=0&src=http%3A%2F%2Fpic.51yuansu.com%2Fbackgd%2Fcover%2F00%2F01%2F30%2F5b4fdfca65145.jpg%2521%2Ffw%2F780%2Fquality%2F90%2Funsharp%2Ftrue%2Fcompress%2Ftrue",
+					"region":"校级",
+					"applyDeadline":"2020-05-05"
+				},
+				{
+					"id":"00008",
+					"theme":"书法大赛",
+					"description":"为了丰富文化节内容和广大同学的课余生活，加强课堂学习和交流，提高同学们的学习积极性，特此举办此次比赛。",
+					"posters":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586105379499&di=4f8108b8cc661e45028c5ab618645715&imgtype=0&src=http%3A%2F%2Fpic37.photophoto.cn%2F20151220%2F0017030075968347_b.jpg",
+					"region":"校级",
+					"applyDeadline":"2020-05-05"
+				},
+				{
+					"id":"00003",
+					"theme":"主持人大赛",
+					"description":"为促进当代大学生身心素质全面发展，建设和谐‘、文明校园，并发掘具有主持特长的在校学生，为学校举办各种晚会输送后备力量。",
+					"posters":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586103144593&di=9f374cf950d6a07a35c6401fff5d773c&imgtype=0&src=http%3A%2F%2Fy1.ifengimg.com%2Fa19e4d7867df1f5d%2F2015%2F0729%2Frdn_55b83c8551f8f.jpg",
+					"region":"校级",
+					"applyDeadline":"2020-04-30"
+				}
 			],
 			
 			loadInfoParams: {
@@ -98,40 +129,30 @@ export default {
 			}
 		};
 	},
-	onShow: function(options) {
+	onShow: function() {
 		uni.startPullDownRefresh();
-		this.getuserinfo(); //获取缓存中的用户信息
-		this.getlist(); //获取活动信息
+		// this.getlist(); //获取活动信息
 	},
 	methods: {
-		//获取缓存中的用户信息
-		getuserinfo() {
-			try {
-				const value = uni.getStorageSync('userinfolist');
-				if (value) {
-					this.loadInfoParams.college = value.college == null ? '' : value.college;
-				}
-			} catch (e) {
-				// error
-				console.log('缓存中信息获取失败');
-			}
-		},
+
 		//大学活动
 		getlist: function() {
 			this.showLoadMore = false;
 			this.loadMoreText = "加载中";
-			let college = '&college=' + this.loadInfoParams.college;
-			if (this.loadInfoParams.college == '' || typeof this.loadInfoParams.college == null) {
-				college = '';
+			let params = {
+				"pageNum": this.loadInfoParams.pageNum,
+				"pageSize": 5
 			}
-			let type = '&type=' + this.loadInfoParams.type;
-			if (this.loadInfoParams.type == '' || typeof this.loadInfoParams.type == null) {
-				type = '';
+			if (this.loadInfoParams.college != '' && typeof this.loadInfoParams.college != null) {
+				params.college = this.loadInfoParams.college;
 			}
-			let params = '?pageNum=' + this.loadInfoParams.pageNum + '&pageSize=' + 5 + college + type;
+			if (this.loadInfoParams.type != '' && typeof this.loadInfoParams.type != null) {
+				params.type = this.loadInfoParams.type;
+			}
 			common
 				.requestURL({
-					url: '/activity/index' + params,
+					url: '/activity/index',
+					params,
 					method: 'GET'
 				})
 				.then(res => {

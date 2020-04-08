@@ -3,14 +3,15 @@
 		<!-- 自定义导航 -->
 		<!-- #ifndef H5 -->
 		<uni-nav-bar 
-			leftText="个人信息修改" 
+			leftText="个人信息" 
+			leftIcon="arrowleft"
 			:url="pagesurl"
 			backgroundColor="#4C6FF3" 
 			circular="true" 
 			fixed="true"/>
 		<!-- #endif -->
 		<!-- #ifdef H5 -->
-		<uni-nav-bar title="个人信息修改" :url="pagesurl" backgroundColor="#4C6FF3" circular="true" fixed="true"/>
+		<uni-nav-bar leftIcon="arrowleft" title="个人信息" :url="pagesurl" backgroundColor="#4C6FF3" circular="true" fixed="true"/>
 		<!-- #endif -->
 		
 		<view :style="{marginTop: marginTop}"></view>
@@ -71,8 +72,7 @@
 				title: '手机号'
 			}
 		},
-		onShow(option) {
-			// this.marginTop = this.$store.state.SET_CUSTOM_BAR + 25 + 'px';
+		onLoad(option) {
 			let item = ""
 			if(option !== "") {
 				item = JSON.parse(decodeURIComponent(option.item));
@@ -86,7 +86,7 @@
 				this.value = item.value;
 			}
 		},
-		mounted() {
+		onShow() {
 			this.marginTop = this.$store.state.SET_CUSTOM_BAR + 25 + 'px';
 		},
 		methods:{

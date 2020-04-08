@@ -44,9 +44,9 @@
 				picture: 'https://cdn.jsdelivr.net/gh/foxhuli229/cdn@1.4/images/z_avater.png'
 			};
 		},
-		onShow(option) {
+		onLoad(option) {
 			if(option !== "") {
-				let param = JSON.parse(option.item);
+				let param =  JSON.parse(option.item);
 				this.pagesurl = param.pagesurl;
 			}
 		},

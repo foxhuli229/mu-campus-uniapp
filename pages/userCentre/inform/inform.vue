@@ -5,7 +5,8 @@
 	<view class="user">
 		<!-- 自定义导航 -->
 		<!-- #ifndef H5 -->
-		<uni-nav-bar leftIcon="arrowleft" leftText="我的通知" backgroundColor="#4C6FF3" circular="true" fixed="true" :url="pagesurl" />
+		<uni-nav-bar 
+		 leftText="我的通知" backgroundColor="#4C6FF3" circular="true" fixed="true" :url="pagesurl" />
 		<!-- #endif -->
 		<!-- #ifdef H5 -->
 		<uni-nav-bar leftIcon="arrowleft" title="我的通知" backgroundColor="#4C6FF3" circular="true" fixed="true" :url="pagesurl" />
@@ -87,12 +88,13 @@ export default {
 			marginTop: ''
 		};
 	},
-	created() {},
-	onShow(option) {
-		if(option !== "") {
+	onLoad(option) {
+		if(option !== "" && typeof option.pagesurl != "") {
 			let param = JSON.parse(option.item);
 			this.pagesurl = param.pagesurl;
 		}
+	},
+	onShow() {
 		this.userinfo();
 	},
 	mounted() {
@@ -119,6 +121,7 @@ export default {
 			let params= {
 				pagesurl: "/pages/userCentre/inform/inform"
 			}
+			params = JSON.stringify(params)
 			uni.navigateTo({
 				url: './infomdetails?item=' + params
 			})

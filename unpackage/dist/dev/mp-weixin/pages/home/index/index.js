@@ -203,16 +203,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 
 var app = getApp();
 var common = __webpack_require__(/*! ../../../publicjs/common.js */ 23);var uniSwiperDot = function uniSwiperDot() {__webpack_require__.e(/*! require.ensure | components/uni-swiper-dot/uni-swiper-dot */ "components/uni-swiper-dot/uni-swiper-dot").then((function () {return resolve(__webpack_require__(/*! @/components/uni-swiper-dot/uni-swiper-dot.vue */ 150));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 46));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniSearchBar = function uniSearchBar() {__webpack_require__.e(/*! require.ensure | components/uni-search-bar/uni-search-bar */ "components/uni-search-bar/uni-search-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-search-bar/uni-search-bar.vue */ 53));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
@@ -220,7 +210,7 @@ var common = __webpack_require__(/*! ../../../publicjs/common.js */ 23);var uniS
 
 
 {
-  name: "HomeIndex",
+  name: 'HomeIndex',
   components: {
     uniSwiperDot: uniSwiperDot,
     uniNavBar: uniNavBar,
@@ -230,11 +220,39 @@ var common = __webpack_require__(/*! ../../../publicjs/common.js */ 23);var uniS
     return {
       oosHost: '',
       max: 0,
-      webUrl: 'https://mp.weixin.qq.com/s/xh-fiDHvn30XD7bUX5ttVg',
-      webviewStyles: {},
-
       //轮播图
-      bannerUrl: [],
+      bannerUrl: [
+      {
+        id: '1246479637803016192',
+        cover: 'http://cmrs-oos.oss-cn-beijing.aliyuncs.com/sys/index_banner.jpg',
+        title: '测试020',
+        description: '这是一个测试2',
+        url: 'https://mp.weixin.qq.com/s/xh-fiDHvn30XD7bUX5ttVg',
+        type: null,
+        isDel: null,
+        gmt_create: null },
+
+      {
+        id: '1246479627644411904',
+        cover: 'http://cmrs-oos.oss-cn-beijing.aliyuncs.com/sys/index_banner.jpg',
+        title: '测试020',
+        description: '这是一个测试2',
+        url: 'https://mp.weixin.qq.com/s/xh-fiDHvn30XD7bUX5ttVg',
+        type: null,
+        isDel: null,
+        gmt_create: null },
+
+      {
+        id: '1246479507179806720',
+        cover: 'http://cmrs-oos.oss-cn-beijing.aliyuncs.com/sys/index_banner.jpg',
+        title: '测试',
+        description: '这是一个测试',
+        url: 'https://mp.weixin.qq.com/s/xh-fiDHvn30XD7bUX5ttVg',
+        type: null,
+        isDel: null,
+        gmt_create: null }],
+
+
       current: 0,
       //导航
       navArray: [
@@ -255,17 +273,49 @@ var common = __webpack_require__(/*! ../../../publicjs/common.js */ 23);var uniS
 
 
       //热门图文
-      graphics: [] };
+      graphics: [
+      {
+        id: '1246713382376099841',
+        cover: 'http://cmrs-oos.oss-cn-beijing.aliyuncs.com/sys/index_banner.jpg',
+        title: '新一年的第一场比赛来啦',
+        description: '2月17日，位于日内瓦的世界贸 。易组织总部并不平静。 当天，WTO...',
+        url: 'https://foxhuli.top/',
+        type: null,
+        isDel: null,
+        gmt_create: null },
+
+      {
+        id: '1246713382376099842',
+        cover: 'http://cmrs-oos.oss-cn-beijing.aliyuncs.com/sys/index_banner.jpg',
+        title: '新一年的第一场比赛来啦',
+        description: '2月17日，位于日内瓦的世界贸 。易组织总部并不平静。 当天，WTO...',
+        url: 'https://foxhuli.top/',
+        type: null,
+        isDel: null,
+        gmt_create: null },
+
+      {
+        id: '1246713382376099843',
+        cover: 'http://cmrs-oos.oss-cn-beijing.aliyuncs.com/sys/index_banner.jpg',
+        title: '新一年的第一场比赛来啦',
+        description: '2月17日，位于日内瓦的世界贸 。易组织总部并不平静。 当天，WTO...',
+        url: 'https://mp.weixin.qq.com/s/xh-fiDHvn30XD7bUX5ttVg',
+        type: null,
+        isDel: null,
+        gmt_create: null }] };
+
+
 
   },
   onShow: function onShow() {
     this.oosHost = app.globalData.oosHost;
     uni.startPullDownRefresh();
     common.fonts(); //获取网络字体
-    // common.checkLogin(); //验证是否登录
-    this.indexSwiper(); //获取首页置顶图文
-    this.getHotGraphic(); /**获取首页精选图文 */
+    // this.getHotGraphic(); /**获取首页精选图文 */
+    // this.indexSwiper(); //获取首页置顶图文
+
     uni.hideHomeButton(); //隐藏首页按钮
+
   },
   //停止刷新
   onPullDownRefresh: function onPullDownRefresh() {
@@ -276,9 +326,11 @@ var common = __webpack_require__(/*! ../../../publicjs/common.js */ 23);var uniS
   methods: {
     //获取首页置顶图文
     indexSwiper: function indexSwiper() {var _this = this;
-      common.requestURL({
+      common.
+      requestURL({
         url: '/graphic/indexTop',
         method: 'GET' }).
+
       then(function (res) {
         if (res.code == 200) {
           _this.bannerUrl = res.data;
@@ -289,14 +341,12 @@ var common = __webpack_require__(/*! ../../../publicjs/common.js */ 23);var uniS
     change: function change(e) {
       this.current = e.detail.current;
     },
-    gonewWeb: function gonewWeb(e, url) {
-      console.log("进来了");
-      url = "https://mp.weixin.qq.com/s/Zs-F9fMFvqvBBGlAMS79Uw";
-      this.webUrl = url;
-      console.log(e, url);
-      if (url != "") {
-        uni.navigateBack({
-          url: url });
+    //页面跳转
+    gonewWeb: function gonewWeb(url) {
+      url = encodeURIComponent(url);
+      if (url != '') {
+        uni.navigateTo({
+          url: "/pages/home/web/web?url=" + url });
 
       }
     },
@@ -305,7 +355,8 @@ var common = __webpack_require__(/*! ../../../publicjs/common.js */ 23);var uniS
         * 获取热门图文-轮播
         */
     getHotGraphic: function getHotGraphic() {var _this2 = this;
-      common.requestURL({
+      common.
+      requestURL({
         url: '/graphic/hot',
         method: 'GET' }).
 

@@ -181,6 +181,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
 
 var app = getApp();var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 46));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniIcons = function uniIcons() {Promise.all(/*! require.ensure | components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-icons/uni-icons")]).then((function () {return resolve(__webpack_require__(/*! @/components/uni-icons/uni-icons.vue */ 157));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
@@ -208,8 +209,7 @@ var utils = __webpack_require__(/*! ../../../common/utils.js */ 125);var _defaul
       title: '手机号' };
 
   },
-  onShow: function onShow(option) {
-    // this.marginTop = this.$store.state.SET_CUSTOM_BAR + 25 + 'px';
+  onLoad: function onLoad(option) {
     var item = "";
     if (option !== "") {
       item = JSON.parse(decodeURIComponent(option.item));
@@ -223,7 +223,7 @@ var utils = __webpack_require__(/*! ../../../common/utils.js */ 125);var _defaul
       this.value = item.value;
     }
   },
-  mounted: function mounted() {
+  onShow: function onShow() {
     this.marginTop = this.$store.state.SET_CUSTOM_BAR + 25 + 'px';
   },
   methods: {
