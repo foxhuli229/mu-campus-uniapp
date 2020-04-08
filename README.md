@@ -7,7 +7,7 @@
 
 ## 2. 结构图
 
-![募校园需求结构图](E:\ZhangHui\uni-app\需求结构图.png)
+![募校园需求结构图](https://cdn.jsdelivr.net/gh/foxhuli229/blog-imgs/mu-uniapp/需求结构图.png)
 
 ## 3. 分工情况
 
@@ -37,62 +37,64 @@
 >
 > 登录
 
-![登录页](E:\ZhangHui\uni-app\登录.png)
+![登录页](https://cdn.jsdelivr.net/gh/foxhuli229/blog-imgs/mu-uniapp/登录.png)
 
 > 主页
 
-![主页](E:\ZhangHui\uni-app\主页.png)
+![主页](https://cdn.jsdelivr.net/gh/foxhuli229/blog-imgs/mu-uniapp/主页.png)
 
 > web-view外部页面跳转
 
-![web-view外部页面跳转](E:\ZhangHui\uni-app\web-view外部跳转.png)
+![web-view外部页面跳转](https://cdn.jsdelivr.net/gh/foxhuli229/blog-imgs/mu-uniapp/web-view外部跳转.png)
 
 > 侧滑信息页
 
-![侧滑信息页](E:\ZhangHui\uni-app\侧滑信息页.png)
+![侧滑信息页](https://cdn.jsdelivr.net/gh/foxhuli229/blog-imgs/mu-uniapp/侧滑信息页.png)
 
 > 资讯页
 
-![平台资讯](E:\ZhangHui\uni-app\平台资讯.png)
-
-
+![平台资讯](https://cdn.jsdelivr.net/gh/foxhuli229/blog-imgs/mu-uniapp/平台资讯.png)
 
 > 大学活动列表页
 
-![大学活动列表页](E:\ZhangHui\uni-app\活动主页.png)
+![大学活动列表页](https://cdn.jsdelivr.net/gh/foxhuli229/blog-imgs/mu-uniapp/活动主页.png)
 
 > 活动详情页 
 
-![活动详情页-](E:\ZhangHui\uni-app\活动详情页.png)
+![活动详情页-](https://cdn.jsdelivr.net/gh/foxhuli229/blog-imgs/mu-uniapp/大学活动详情页.png)
 
 > 组队信息
 
-![组队信息](E:\ZhangHui\uni-app\组队信息.png)
+![组队信息](https://cdn.jsdelivr.net/gh/foxhuli229/blog-imgs/mu-uniapp/组队信息.png)
 
 > 团队招募列表页
 
-![团队招募列表页](E:\ZhangHui\uni-app\团队招募主页-2.png)
+![团队招募列表页](https://cdn.jsdelivr.net/gh/foxhuli229/blog-imgs/mu-uniapp/团队招募主页-2.png)
 
 > 申请加入
 
-![申请加入](E:\ZhangHui\uni-app\申请加入.png)
+![申请加入](https://cdn.jsdelivr.net/gh/foxhuli229/blog-imgs/mu-uniapp/申请加入.png)
 
 > 团队招募发布页
 
-![团队招募发布页](E:\ZhangHui\uni-app\团队招募发布页.png)
+![团队招募发布页](https://cdn.jsdelivr.net/gh/foxhuli229/blog-imgs/mu-uniapp/团队招募发布页.png)
 
 > 个人中心
 
-![个人中心](E:\ZhangHui\uni-app\个人主页.png)
+![个人中心](https://cdn.jsdelivr.net/gh/foxhuli229/blog-imgs/mu-uniapp/个人主页.png)
 
 > 个人信息页
 
-![个人信息页](E:\ZhangHui\uni-app\个人信息页.png)
+![个人信息页](https://cdn.jsdelivr.net/gh/foxhuli229/blog-imgs/mu-uniapp/个人信息页.png)
 
 > 修改个人信息页
 
-![修改个人信息页](E:\ZhangHui\uni-app\修改个人信息页.png)
+![修改个人信息页](https://cdn.jsdelivr.net/gh/foxhuli229/blog-imgs/mu-uniapp/修改个人信息页.png)
 
 > 通知
 
-![通知主页](E:\ZhangHui\uni-app\通知.png)
+![通知主页](https://cdn.jsdelivr.net/gh/foxhuli229/blog-imgs/mu-uniapp/通知.png)
+
+> 通知详情页
+
+![通知详情页](https://cdn.jsdelivr.net/gh/foxhuli229/blog-imgs/mu-uniapp/通知详情.png)
