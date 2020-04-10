@@ -14,8 +14,6 @@
 		<uni-nav-bar leftIcon="arrowleft" title="个人信息" :url="pagesurl" backgroundColor="#4C6FF3" circular="true" fixed="true"/>
 		<!-- #endif -->
 		
-		<view :style="{marginTop: marginTop}"></view>
-		
 		<view class="login-center">
 			<image :src="avatar"></image>
 			<!-- 手机或者邮箱 -->
@@ -59,13 +57,9 @@
 		},
 		data() {
 			return {
-				// leftText: '个人信息', //左文字
-				// backgroundColor: "#4C6FF3", //背景色
-				// circular: true, //是否需要圆形
 				yzcode: '', //验证码
 				tel: '', //手机号
 				email: '', //邮箱
-				marginTop: 0, //因设置自定义导航头部为 固定后，则需要设置它向下的距离
 				pagesurl: '' ,//返回跳转的url地址
 				avatar: '' ,//头像
 				value: '' ,//文本框value值
@@ -76,10 +70,6 @@
 			let item = ""
 			if(option !== "") {
 				item = JSON.parse(decodeURIComponent(option.item));
-				// this.leftIcon = item.leftIcon;
-				// this.leftText = item.leftText;
-				// this.backgroundColor = item.backgroundColor;
-				// this.circular = item.circular;
 				this.pagesurl = item.pagesurl;
 				this.avatar = item.avatar;
 				this.title = item.title;
@@ -87,7 +77,7 @@
 			}
 		},
 		onShow() {
-			this.marginTop = this.$store.state.SET_CUSTOM_BAR + 25 + 'px';
+			
 		},
 		methods:{
 			saveBaseinfo() {

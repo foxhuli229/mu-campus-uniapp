@@ -100,7 +100,26 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
 var app = getApp();var _default =
 {
   methods: _objectSpread({},
-  (0, _vuex.mapMutations)(['login'])),
+  (0, _vuex.mapMutations)(['login']), { //对全局方法的login进行监控
+    //验证用户是否填写学院信息
+    checkCollege: function checkCollege() {
+      uni.showModal({
+        title: "温馨提示",
+        content: "亲，你还没有绑定院校信息！",
+        showCancel: false,
+        success: function success(res) {
+          if (res.confirm) {
+            var param = {
+              pagesurl: '/pages/userCentre/index/index' };
+
+            param = JSON.stringify(param);
+            uni.redirectTo({
+              url: '/pages/userCentre/baseinfo/baseinfo?item=' + param });
+
+          }
+        } });
+
+    } }),
 
   onLaunch: function onLaunch() {
     // console.log('App Launch');
@@ -113,12 +132,6 @@ var app = getApp();var _default =
     }
     if ((userinfo != "" || arry.length != 0) && token != "") {
       // //更新的登录状态
-      // uni.getUserInfo({
-      // 	provider: 'weixin',
-      // 	success(ress) {
-      // 		console.log(ress)
-      // 	}
-      // })
       uni.getStorageInfoSync({
         key: "userinfolist",
         success: function success(res) {
@@ -134,6 +147,18 @@ var app = getApp();var _default =
   },
   onShow: function onShow() {
     console.log('App Show');
+    var userinfo = uni.getStorageSync("userinfolist") || "";
+    var token = uni.getStorageSync("token") || "";
+    var arry = [];
+    if (typeof userinfo == "object") {
+      arry = Object.keys(userinfo);
+    }
+    if ((userinfo != "" || arry.length != 0) && token != "") {
+      if (userinfo.college == null || userinfo.college == "") {
+        this.checkCollege(); //验证是否填写学院信息
+      }
+    }
+
   },
   onHide: function onHide() {
     console.log('App Hide');

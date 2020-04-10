@@ -12,8 +12,6 @@
 		<uni-nav-bar leftIcon="arrowleft" title="我的通知" backgroundColor="#4C6FF3" circular="true" fixed="true" :url="pagesurl" />
 		<!-- #endif -->
 
-		<view :style="{ marginTop: marginTop }"></view>
-
 		<!-- 卡片 -->
 		<view class="user-contentr">
 			<view class="uni-card" @click="goinformdetails()">
@@ -85,7 +83,6 @@ export default {
 				}
 			],
 			pagesurl: '',
-			marginTop: ''
 		};
 	},
 	onLoad(option) {
@@ -96,10 +93,6 @@ export default {
 	},
 	onShow() {
 		this.userinfo();
-	},
-	mounted() {
-		console.log(this.$store.state.SET_CUSTOM_BAR);
-		this.marginTop = this.$store.state.SET_CUSTOM_BAR + 25 + 'px';
 	},
 	watch: {
 		pagesurl(newVal, val) {

@@ -203,6 +203,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 var app = getApp();
 var common = __webpack_require__(/*! ../../../publicjs/common.js */ 23);var uniSwiperDot = function uniSwiperDot() {__webpack_require__.e(/*! require.ensure | components/uni-swiper-dot/uni-swiper-dot */ "components/uni-swiper-dot/uni-swiper-dot").then((function () {return resolve(__webpack_require__(/*! @/components/uni-swiper-dot/uni-swiper-dot.vue */ 150));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 46));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniSearchBar = function uniSearchBar() {__webpack_require__.e(/*! require.ensure | components/uni-search-bar/uni-search-bar */ "components/uni-search-bar/uni-search-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-search-bar/uni-search-bar.vue */ 53));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
@@ -218,7 +220,6 @@ var common = __webpack_require__(/*! ../../../publicjs/common.js */ 23);var uniS
 
   data: function data() {
     return {
-      oosHost: '',
       max: 0,
       //轮播图
       bannerUrl: [
@@ -308,7 +309,6 @@ var common = __webpack_require__(/*! ../../../publicjs/common.js */ 23);var uniS
 
   },
   onShow: function onShow() {
-    this.oosHost = app.globalData.oosHost;
     uni.startPullDownRefresh();
     common.fonts(); //获取网络字体
     // this.getHotGraphic(); /**获取首页精选图文 */

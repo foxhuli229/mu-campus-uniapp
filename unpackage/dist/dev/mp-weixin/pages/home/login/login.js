@@ -170,16 +170,11 @@ var common = __webpack_require__(/*! ../../../publicjs/common.js */ 23);var uniN
     uniNavBar: uniNavBar },
 
   data: function data() {
-    return {
-      marginTop: 0 //高度
-    };
+    return {};
+
   },
   onLoad: function onLoad() {
     uni.stopPullDownRefresh(); //停止刷新
-    this.marginTop = this.$store.state.SET_CUSTOM_BAR + 25 + 'px';
-  },
-  onShow: function onShow() {
-    this.marginTop = this.$store.state.SET_CUSTOM_BAR + 25 + 'px';
   },
   methods: {
     getUserInfo: function getUserInfo(res) {
@@ -207,8 +202,21 @@ var common = __webpack_require__(/*! ../../../publicjs/common.js */ 23);var uniN
                   if (res.code == 200) {
                     this_.$store.commit("userinfolist", res.data.user);
                     this_.$store.commit("token", res.data.token);
+
                     uni.redirectTo({
                       url: "../index/index" });
+
+
+                    if (typeof res.data.college != "undefined" &&
+                    res.data.college != null &&
+                    res.data.college != "") {
+                      //已填写学院信息
+
+                    } else {
+                        //未填写学院信息的时候
+
+
+                      }
 
                   } else {
                     uni.showModal({

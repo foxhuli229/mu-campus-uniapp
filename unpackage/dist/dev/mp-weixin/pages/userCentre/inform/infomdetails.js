@@ -159,8 +159,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
-//
-//
 
 var app = getApp();
 var common = __webpack_require__(/*! ../../../publicjs/common.js */ 23);var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 46));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniIcons = function uniIcons() {Promise.all(/*! require.ensure | components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-icons/uni-icons")]).then((function () {return resolve(__webpack_require__(/*! @/components/uni-icons/uni-icons.vue */ 157));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
@@ -173,7 +171,6 @@ var common = __webpack_require__(/*! ../../../publicjs/common.js */ 23);var uniN
 
   data: function data() {
     return {
-      marginTop: 0, //离自定义头部的距离
       pagesurl: '',
       title: '申请加入通知',
       time: '2019/11/21 11:00',
@@ -187,8 +184,7 @@ var common = __webpack_require__(/*! ../../../publicjs/common.js */ 23);var uniN
       this.pagesurl = param.pagesurl;
     }
   },
-  mounted: function mounted() {
-    this.marginTop = this.$store.state.SET_CUSTOM_BAR + 25 + 'px';
+  onShow: function onShow() {
   },
   methods: {} };exports.default = _default;
 

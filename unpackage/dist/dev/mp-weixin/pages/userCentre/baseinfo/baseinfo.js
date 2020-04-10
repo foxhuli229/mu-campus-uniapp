@@ -271,7 +271,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 var app = getApp();
 var common = __webpack_require__(/*! ../../../publicjs/common.js */ 23);
@@ -302,8 +301,6 @@ var utils = __webpack_require__(/*! ../../../utils/utils.js */ 108);var uniNavBa
         textAlign: 'right',
         fontSize: '30rpx' },
 
-      viewTop: 0,
-      marginTop: 0, //离自定义头部的距离
       homepagesurl: '/pages/userCentre/baseinfo/baseinfo', //返回跳转的页面
       pagesurl: '' };
 
@@ -315,11 +312,7 @@ var utils = __webpack_require__(/*! ../../../utils/utils.js */ 108);var uniNavBa
     }
   },
   onShow: function onShow() {
-    this.marginTop = this.$store.state.SET_CUSTOM_BAR + 25 + 'px';
 
-
-
-    this.viewTop = this.$store.state.SET_CUSTOM_BAR;
   },
   mounted: function mounted() {
 

@@ -79,6 +79,10 @@
 			"style": {
 				"navigationBarTitleText": "个人主页",
 				"navigationBarBackgroundColor": "#4C6FF3"
+				// "SplitLineStyles": {
+					// "height": "0px",
+					// "color": "#4C6FF3"
+				// }
 			}
 		},
 		{

@@ -35,7 +35,9 @@
 				<text class="hot">热门</text>
 				<text class="platform-introduction">平台介绍</text>
 			</view>
-			<navigator class="info-right" url="/pages/home/information/information" hover-class="none"><image :src="oosHost + 'sys/icon_information.png'"></image></navigator>
+			<navigator class="info-right" url="/pages/home/information/information" hover-class="none">
+				<image src="https://cmrs-oos.oss-cn-beijing.aliyuncs.com/sys/icon_information.png"></image>
+			</navigator>
 		</view>
 
 		<!-- 活动列表 -->
@@ -67,7 +69,6 @@ export default {
 	},
 	data() {
 		return {
-			oosHost: '',
 			max: 0,
 			//轮播图
 			bannerUrl: [
@@ -157,7 +158,6 @@ export default {
 		};
 	},
 	onShow() {
-		this.oosHost = app.globalData.oosHost;
 		uni.startPullDownRefresh();
 		common.fonts(); //获取网络字体
 		// this.getHotGraphic(); /**获取首页精选图文 */

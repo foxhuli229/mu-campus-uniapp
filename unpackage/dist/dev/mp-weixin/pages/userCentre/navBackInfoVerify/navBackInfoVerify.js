@@ -180,8 +180,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
-//
-//
 
 var app = getApp();var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 46));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniIcons = function uniIcons() {Promise.all(/*! require.ensure | components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-icons/uni-icons")]).then((function () {return resolve(__webpack_require__(/*! @/components/uni-icons/uni-icons.vue */ 157));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
@@ -196,13 +194,9 @@ var utils = __webpack_require__(/*! ../../../common/utils.js */ 125);var _defaul
 
   data: function data() {
     return {
-      // leftText: '个人信息', //左文字
-      // backgroundColor: "#4C6FF3", //背景色
-      // circular: true, //是否需要圆形
       yzcode: '', //验证码
       tel: '', //手机号
       email: '', //邮箱
-      marginTop: 0, //因设置自定义导航头部为 固定后，则需要设置它向下的距离
       pagesurl: '', //返回跳转的url地址
       avatar: '', //头像
       value: '', //文本框value值
@@ -213,10 +207,6 @@ var utils = __webpack_require__(/*! ../../../common/utils.js */ 125);var _defaul
     var item = "";
     if (option !== "") {
       item = JSON.parse(decodeURIComponent(option.item));
-      // this.leftIcon = item.leftIcon;
-      // this.leftText = item.leftText;
-      // this.backgroundColor = item.backgroundColor;
-      // this.circular = item.circular;
       this.pagesurl = item.pagesurl;
       this.avatar = item.avatar;
       this.title = item.title;
@@ -224,7 +214,7 @@ var utils = __webpack_require__(/*! ../../../common/utils.js */ 125);var _defaul
     }
   },
   onShow: function onShow() {
-    this.marginTop = this.$store.state.SET_CUSTOM_BAR + 25 + 'px';
+
   },
   methods: {
     saveBaseinfo: function saveBaseinfo() {

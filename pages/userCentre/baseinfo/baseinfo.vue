@@ -21,7 +21,6 @@
 			:url="pagesurl"
 			/>
 		<!-- #endif -->
-		<view :style="{marginTop: marginTop}"></view>
 		<!-- 表单  :style="{marginTop: marginTop}"-->
 		<form style="overflow-y: auto;">
 				<!-- 头像 -->
@@ -162,8 +161,6 @@ export default {
 				textAlign: 'right',
 				fontSize: '30rpx'
 			},
-			viewTop: 0,
-			marginTop: 0, //离自定义头部的距离
 			homepagesurl: '/pages/userCentre/baseinfo/baseinfo', //返回跳转的页面
 			pagesurl: ''
 		};
@@ -175,11 +172,7 @@ export default {
 		}
 	},
 	onShow() {
-		this.marginTop = this.$store.state.SET_CUSTOM_BAR + 25 + 'px';
-		// #ifdef H5
-		// this.marginTop = this.$store.state.SET_CUSTOM_BAR + 60 + 'px';
-		// #endif
-		this.viewTop = this.$store.state.SET_CUSTOM_BAR;
+		
 	},
 	mounted() {
 		

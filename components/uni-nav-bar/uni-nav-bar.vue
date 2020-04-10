@@ -45,6 +45,10 @@
 				<view class="white_raduis"></view>
 			</view>
 		</view>
+		
+		<!-- 占位 -->
+		<view :style="{marginTop: marginTop}"></view>
+		
 	</view>
 </template>
 
@@ -133,7 +137,8 @@ export default {
 		return {
 			customBarHieight: 0 ,//设置自定义导航距离
 			customTitleTop: 0 ,//设置自定义标题高度
-			customBarTitle: false
+			customBarTitle: false,
+			marginTop: 0, //占位
 		};
 	},
 	created() {
@@ -213,6 +218,7 @@ export default {
 					// #endif
 
 					this.customBarHieight = customBar;
+					this.marginTop = customBar + 25 + "px"
 
 					// 这里你可以自己决定存放方式，建议放在store中，因为store是实时变化的
 					this.$store.commit('SET_STATUS_BAR', statusBar);

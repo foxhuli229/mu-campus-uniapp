@@ -1,9 +1,28 @@
 <script>
-import {mapMutations} from 'vuex'
+import {mapMutations, mapState } from 'vuex'
 const app = getApp();
 export default {
 	methods: {
-		...mapMutations(['login']) //对全局方法的login进行监控
+		...mapMutations(['login']), //对全局方法的login进行监控
+		//验证用户是否填写学院信息
+		checkCollege() {
+			uni.showModal({
+				title:"温馨提示",
+				content: "亲，你还没有绑定院校信息！",
+				showCancel:false,
+				success(res) {
+					if(res.confirm) {
+						let param = {
+							pagesurl: '/pages/userCentre/index/index'
+						}
+						param = JSON.stringify(param)
+						uni.redirectTo({
+							url: '/pages/userCentre/baseinfo/baseinfo?item=' + param
+						})
+					}
+				}
+			})
+		}
 	},
 	onLaunch: function() {
 		// console.log('App Launch');
@@ -16,12 +35,6 @@ export default {
 		}
 		if((userinfo != "" || arry.length != 0 ) && token != ""){
 			// //更新的登录状态
-			// uni.getUserInfo({
-			// 	provider: 'weixin',
-			// 	success(ress) {
-			// 		console.log(ress)
-			// 	}
-			// })
 			uni.getStorageInfoSync({
 				key: "userinfolist",
 				success: function(res) {
@@ -37,6 +50,18 @@ export default {
 	},
 	onShow: function() {
 		console.log('App Show');
+		let userinfo = uni.getStorageSync("userinfolist") || "";
+		let token = uni.getStorageSync("token") || "";
+		let arry =[];
+		if(typeof userinfo == "object") {
+			arry = Object.keys(userinfo);
+		}
+		if((userinfo != "" || arry.length != 0 ) && token != ""){
+			if(userinfo.college == null || userinfo.college == "") {
+				this.checkCollege(); //验证是否填写学院信息
+			}
+		}
+		
 	},
 	onHide: function() {
 		console.log('App Hide');

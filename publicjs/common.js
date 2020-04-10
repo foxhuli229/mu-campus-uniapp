@@ -60,7 +60,7 @@ const checkToken = function checkToken() {
 			title: "温馨提示",
 			content: "请先授权登录！",
 			showCancel: false,
-			success: function(res) {
+			success(res) {
 				if(res.confirm) {
 					uni.redirectTo({
 						url: '/pages/home/login/login'
@@ -71,7 +71,7 @@ const checkToken = function checkToken() {
 	}else {
 		//检查token是否存在
 		uni.checkSession({
-			fail: (res) => {
+			fail(res){
 				uni.request({
 					url: app.globalData.host + "/user/refresh",
 					method: 'POST',
@@ -96,7 +96,7 @@ const checkLogin = function checkLogin() {
 		success() {
 			
 		},
-		fail: () => {
+		fail() {
 			login(); //登录
 		}
 	})
@@ -118,7 +118,7 @@ const login = function login() {
 							let code = res.code;
 							uni.getUserInfo({
 								provider: 'weixin',
-								success: (userRes) => {
+								success(userRes){
 									console.log(userRes);
 									let iv = userRes.iv;
 									let encryptedData = userRes.encryptedData;
@@ -127,12 +127,11 @@ const login = function login() {
 										iv,
 										encryptedData
 									}
-									console.log(param)
 									uni.request({
 										url: app.globalData.host +  '/user/wxlogin',
 										method: 'POST',
 										params: JSON.stringify({ code, encryptedData, iv }),
-										success: (res) => {
+										success(res) {
 											res = res.data;
 											if (res.code === 200) {
 												store.state.commit("token", res.data.token);
@@ -177,6 +176,7 @@ const login = function login() {
 	})
 }
 
+
 // 加载网络字体
 const fonts = function fonts() {
 	// 动态加载网络字体，文件地址需为下载类型。
@@ -191,5 +191,5 @@ module.exports = {
 	login,
 	fonts,
 	checkLogin,
-	checkToken
+	checkToken,
 }

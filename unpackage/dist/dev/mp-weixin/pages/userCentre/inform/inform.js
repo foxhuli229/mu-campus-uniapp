@@ -198,8 +198,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 var app = getApp();
 var common = __webpack_require__(/*! ../../../publicjs/common.js */ 23);var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 46));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniIcons = function uniIcons() {Promise.all(/*! require.ensure | components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-icons/uni-icons")]).then((function () {return resolve(__webpack_require__(/*! @/components/uni-icons/uni-icons.vue */ 157));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniSwipeAction = function uniSwipeAction() {__webpack_require__.e(/*! require.ensure | components/uni-swipe-action/uni-swipe-action */ "components/uni-swipe-action/uni-swipe-action").then((function () {return resolve(__webpack_require__(/*! @/components/uni-swipe-action/uni-swipe-action.vue */ 186));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniSwipeActionItem = function uniSwipeActionItem() {Promise.all(/*! require.ensure | components/uni-swipe-action-item/uni-swipe-action-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-swipe-action-item/uni-swipe-action-item")]).then((function () {return resolve(__webpack_require__(/*! @/components/uni-swipe-action-item/uni-swipe-action-item.vue */ 191));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
@@ -227,8 +225,7 @@ var common = __webpack_require__(/*! ../../../publicjs/common.js */ 23);var uniN
 
 
 
-      pagesurl: '',
-      marginTop: '' };
+      pagesurl: '' };
 
   },
   onLoad: function onLoad(option) {
@@ -239,10 +236,6 @@ var common = __webpack_require__(/*! ../../../publicjs/common.js */ 23);var uniN
   },
   onShow: function onShow() {
     this.userinfo();
-  },
-  mounted: function mounted() {
-    console.log(this.$store.state.SET_CUSTOM_BAR);
-    this.marginTop = this.$store.state.SET_CUSTOM_BAR + 25 + 'px';
   },
   watch: {
     pagesurl: function pagesurl(newVal, val) {

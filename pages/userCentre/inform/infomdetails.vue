@@ -9,8 +9,6 @@
 		<uni-nav-bar leftIcon="arrowleft" title="通知详情" backgroundColor="#4C6FF3" circular="true" fixed="true" :url="pagesurl" />
 		<!-- #endif -->
 		
-		<view :style="{ marginTop: marginTop }"></view>
-		
 		<view class="inform-title">{{title}}</view>
 		<view class="inform-time">{{time}}</view>
 		<view class="inform-cont">{{cont}}</view>
@@ -36,7 +34,6 @@
 		},
 		data() {
 			return {
-				marginTop: 0, //离自定义头部的距离
 				pagesurl: '',
 				title: '申请加入通知',
 				time: '2019/11/21 11:00',
@@ -50,8 +47,7 @@
 				this.pagesurl = param.pagesurl;
 			}
 		},
-		mounted() {
-			this.marginTop = this.$store.state.SET_CUSTOM_BAR + 25 + 'px';
+		onShow() {
 		},
 		methods:{
 			

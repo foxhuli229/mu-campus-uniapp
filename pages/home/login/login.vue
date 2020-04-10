@@ -7,7 +7,7 @@
 		<!-- #ifdef H5 -->
 		<uni-nav-bar title="募校园" backgroundColor="#4C6FF3" circular="true" fixed="true"/>
 		<!-- #endif -->
-		<view :style="{marginTop: marginTop}"></view>
+		<!-- <view :style="{marginTop: marginTop}"></view> -->
 		<view class="login-center">
 			<image src="../../../static/logo.png"></image>
 			<text class="logintext">募校园</text>
@@ -34,15 +34,10 @@ export default {
 	},
 	data() {
 		return {
-			marginTop: 0, //高度
 		};
 	},
 	onLoad() {
 		uni.stopPullDownRefresh(); //停止刷新
-		this.marginTop = this.$store.state.SET_CUSTOM_BAR + 25 + 'px';
-	},
-	onShow() {
-		this.marginTop = this.$store.state.SET_CUSTOM_BAR + 25 + 'px';
 	},
 	methods: {
 		getUserInfo(res) {
@@ -70,9 +65,22 @@ export default {
 										if (res.code == 200) {
 											this_.$store.commit("userinfolist", res.data.user)
 											this_.$store.commit("token", res.data.token);
+											
 											uni.redirectTo({
 												url: "../index/index"
 											})
+											
+											if(typeof res.data.college != "undefined"
+												&& res.data.college != null
+												&& res.data.college != "") {
+													//已填写学院信息
+													
+												}else {
+													//未填写学院信息的时候
+													
+													
+												}
+											
 										}else {
 											uni.showModal({
 												title: '提示',

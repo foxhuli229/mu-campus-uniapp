@@ -170,6 +170,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
 /**
                                                                                                                                                                                                                                                                        * NavBar 自定义导航栏
                                                                                                                                                                                                                                                                        * @description 导航栏组件，主要用于头部导航
@@ -253,8 +257,9 @@ __webpack_require__.r(__webpack_exports__);
     return {
       customBarHieight: 0, //设置自定义导航距离
       customTitleTop: 0, //设置自定义标题高度
-      customBarTitle: false };
-
+      customBarTitle: false,
+      marginTop: 0 //占位
+    };
   },
   created: function created() {
     this.getSystemInfo(); //获取系统信息
@@ -333,6 +338,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
           _this.customBarHieight = customBar;
+          _this.marginTop = customBar + 25 + "px";
 
           // 这里你可以自己决定存放方式，建议放在store中，因为store是实时变化的
           _this.$store.commit('SET_STATUS_BAR', statusBar);
